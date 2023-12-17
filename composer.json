@@ -1,0 +1,69 @@
+{
+    "name": "dotsplatform/glovo-laas-api-sdk-laravel",
+    "description": "This a laravel package for Glovo Laas API - https://logistics-docs.glovoapp.com/laas-partners/index.html#section/Glovo-LaaS-API",
+    "type": "library",
+    "require": {
+        "php": "^8.2",
+        "dotsplatform/utils": "^2.0",
+        "saloonphp/saloon": "^3.4",
+        "illuminate/support": "^10.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "larastan/larastan": "^2.7",
+        "eduarguz/shift-php-cs": "^3.0",
+        "laravel/laravel": "^10.2",
+        "orchestra/testbench": "^8.17"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dots\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yehor Herasymchuk",
+            "email": "yehor@dotsplatform.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Barryvdh\\Debugbar\\ServiceProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Barryvdh\\Debugbar\\Facade"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "lint": [
+            "@php vendor/bin/phpstan analyse"
+        ],
+        "test": [
+            "@php vendor/bin/phpunit"
+        ]
+    }
+}

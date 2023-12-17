@@ -1,0 +1,63 @@
+[2023-12-17 15:10:47] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 /var/www/glovo-laas-api-sdk-laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-17 15:10:47] laravel.ERROR: Unable to load the "app" configuration file. {"exception":"[object] (Exception(code: 0): Unable to load the \"app\" configuration file. at /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:66)
+[stacktrace]
+#0 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 /var/www/glovo-laas-api-sdk-laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-17 15:10:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 /var/www/glovo-laas-api-sdk-laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-17 15:10:55] laravel.ERROR: Unable to load the "app" configuration file. {"exception":"[object] (Exception(code: 0): Unable to load the \"app\" configuration file. at /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:66)
+[stacktrace]
+#0 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 /var/www/glovo-laas-api-sdk-laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-17 15:11:46] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 /var/www/glovo-laas-api-sdk-laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-17 15:11:46] laravel.ERROR: Unable to load the "app" configuration file. {"exception":"[object] (Exception(code: 0): Unable to load the \"app\" configuration file. at /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:66)
+[stacktrace]
+#0 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /var/www/glovo-laas-api-sdk-laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 /var/www/glovo-laas-api-sdk-laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
