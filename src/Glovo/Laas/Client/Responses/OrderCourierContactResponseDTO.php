@@ -13,4 +13,14 @@ class OrderCourierContactResponseDTO extends GlovoResponseDTO
     // +34666666666
     protected string $courierPhone;
 
+    public function getCourierName(): string
+    {
+        return $this->courierName;
+    }
+
+    public function getCourierPhone(): string
+    {
+        return $this->courierPhone;
+    }
+
 }

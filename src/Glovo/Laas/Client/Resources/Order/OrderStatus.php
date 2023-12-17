@@ -41,6 +41,11 @@ class OrderStatus extends DTO
         return $data;
     }
 
+    public function isCourierAssignedStatus(): bool
+    {
+        return $this->state->isCourierAssigned();
+    }
+
     public function getCreatedAt(): GlovoDateTime
     {
         return $this->createdAt;

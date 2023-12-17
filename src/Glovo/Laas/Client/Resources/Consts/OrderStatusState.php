@@ -22,5 +22,15 @@ enum OrderStatusState: string
     case NOT_DELIVERED_NOT_RETURNED = 'NOT_DELIVERED_NOT_RETURNED';
     case RETURNED = 'RETURNED';
 
+    public function isCourierAssigned(): bool
+    {
+        return in_array($this, [
+            self::ACCEPTED,
+            self::WAITING_FOR_PICKUP,
+            self::PICKED,
+            self::WAITING_FOR_DELIVERY,
+            self::DELIVERED,
+        ], true);
+    }
 
 }

@@ -49,6 +49,11 @@ class OrderResponseDTO extends GlovoResponseDTO
         return parent::fromArray($data);
     }
 
+    public function canHaveCourierDetails(): bool
+    {
+        return $this->getStatus()->isCourierAssignedStatus();
+    }
+
     public function getTrackingNumber(): string
     {
         return $this->trackingNumber;

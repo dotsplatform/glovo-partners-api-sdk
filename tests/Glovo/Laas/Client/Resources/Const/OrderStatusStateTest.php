@@ -28,4 +28,21 @@ class OrderStatusStateTest extends TestCase
         $this->assertEquals('NOT_DELIVERED_NOT_RETURNED', OrderStatusState::NOT_DELIVERED_NOT_RETURNED->value);
         $this->assertEquals('RETURNED', OrderStatusState::RETURNED->value);
     }
+
+    public function testIsCourierAssigned(): void
+    {
+        $this->assertFalse(OrderStatusState::CREATED->isCourierAssigned());
+        $this->assertFalse(OrderStatusState::REJECTED->isCourierAssigned());
+        $this->assertFalse(OrderStatusState::SCHEDULED->isCourierAssigned());
+        $this->assertFalse(OrderStatusState::ACTIVATED->isCourierAssigned());
+        $this->assertTrue(OrderStatusState::ACCEPTED->isCourierAssigned());
+        $this->assertTrue(OrderStatusState::WAITING_FOR_PICKUP->isCourierAssigned());
+        $this->assertTrue(OrderStatusState::PICKED->isCourierAssigned());
+        $this->assertTrue(OrderStatusState::WAITING_FOR_DELIVERY->isCourierAssigned());
+        $this->assertTrue(OrderStatusState::DELIVERED->isCourierAssigned());
+        $this->assertFalse(OrderStatusState::CANCELLED->isCourierAssigned());
+        $this->assertFalse(OrderStatusState::NOT_DELIVERED_NOT_RETURNED->isCourierAssigned());
+        $this->assertFalse(OrderStatusState::RETURNED->isCourierAssigned());
+    }
+
 }
