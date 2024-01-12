@@ -20,7 +20,7 @@ class PickupDetailsTest extends TestCase
         array $addressData,
         ?string $pickupOrderCode,
         ?string $pickupTime,
-        ?string $pickupPhone
+        ?string $pickupPhone,
     ): void {
         $data = [
             'address' => $addressData,
@@ -30,16 +30,7 @@ class PickupDetailsTest extends TestCase
         ];
 
         $pickupDetails = PickupDetails::fromArray($data);
-
-        $this->assertEquals($pickupOrderCode, $pickupDetails->getPickupOrderCode());
-
-        if ($pickupTime !== null) {
-            $this->assertEquals($pickupTime, $pickupDetails->getPickupTime()->__toString());
-        } else {
-            $this->assertNull($pickupDetails->getPickupTime());
-        }
-
-        $this->assertSame($pickupPhone, $pickupDetails->getPickupPhone());
+        $this->assertEquals($data, $pickupDetails->toArray());
     }
 
     public static function providePickupDetailsData(): array

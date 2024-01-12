@@ -24,6 +24,13 @@ class PickupDetails extends DTO
         return parent::fromArray($data);
     }
 
+    public function toArray(): array
+    {
+        $data = parent::toArray();
+        $data['pickupTime'] = $this->getPickupTime()?->__toString();
+        return $data;
+    }
+
     public function getAddress(): Address
     {
         return $this->address;
