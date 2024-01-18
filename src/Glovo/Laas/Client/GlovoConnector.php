@@ -19,6 +19,7 @@ use Dots\Glovo\Laas\Client\Requests\Orders\GetOrderRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\Simulate\SimulateFailedDeliveryRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\Simulate\SimulateSuccessfulDeliveryRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\ValidateOrderRequest;
+use Dots\Glovo\Laas\Client\Requests\Orders\WorkingAreaRequest;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\DeleteWebhookRequest;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\DTO\RegisterWebhookDTO;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\GetWebhooksListRequest;
@@ -60,6 +61,12 @@ class GlovoConnector extends Connector
     {
         $this->authenticateRequests();
         return $this->send(new ValidateOrderRequest($dto))->dto();
+    }
+
+    public function workingArea(): array
+    {
+        $this->authenticateRequests();
+        return $this->send(new WorkingAreaRequest())->dto();
     }
 
     public function createOrder(CreateOrderDTO $dto): OrderResponseDTO
