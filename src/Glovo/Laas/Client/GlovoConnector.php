@@ -8,6 +8,7 @@
 namespace Dots\Glovo\Laas\Client;
 
 use Dots\Glovo\Laas\Client\DTO\GlovoAuthDTO;
+use Dots\Glovo\Laas\Client\Exceptions\GlovoException;
 use Dots\Glovo\Laas\Client\Requests\AuthenticateRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\CancelOrderRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\CreateOrderRequest;
@@ -69,10 +70,13 @@ class GlovoConnector extends Connector
         return $this->send(new WorkingAreaRequest())->dto();
     }
 
+    /**
+     * @throws GlovoException
+    */
     public function createOrder(CreateOrderDTO $dto): OrderResponseDTO
     {
         $this->authenticateRequests();
-        return $this->send(new CreateOrderRequest($dto))->dto();
+        return $this->send(new CreateOrderRequest($dto, $this->stageEnv))->dto();
     }
 
     public function getOrder(string $trackingNumber): OrderResponseDTO

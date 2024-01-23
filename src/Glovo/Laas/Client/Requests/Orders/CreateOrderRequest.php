@@ -7,10 +7,13 @@
 
 namespace Dots\Glovo\Laas\Client\Requests\Orders;
 
+use Dots\Glovo\Laas\Client\Exceptions\GlovoException;
 use Dots\Glovo\Laas\Client\Requests\Orders\DTO\CreateOrderDTO;
 use Dots\Glovo\Laas\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Laas\Client\Responses\ErrorResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderResponseDTO;
 use Saloon\Http\Response;
+use Throwable;
 
 /**
  * @url https://logistics-docs.glovoapp.com/laas-partners/index.html#operation/createPartnerParcel
@@ -36,13 +39,14 @@ class CreateOrderRequest extends PostGlovoRequest
 
     public function __construct(
         protected readonly CreateOrderDTO $dto,
+        private readonly bool $stageEnv = true,
     ) {
 
     }
 
     protected function defaultBody(): array
     {
-        return $this->dto->toArray();
+      return $this->dto->toRequestData($this->stageEnv);
     }
 
     public function resolveEndpoint(): string
@@ -55,5 +59,9 @@ class CreateOrderRequest extends PostGlovoRequest
         return OrderResponseDTO::fromResponse($response);
     }
 
-
+    public function getRequestException(Response $response, ?Throwable $senderException): ?Throwable
+    {
+        $errorResponse = ErrorResponseDTO::fromResponse($response);
+        return new GlovoException($errorResponse);
+    }
 }
