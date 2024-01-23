@@ -7,13 +7,11 @@
 
 namespace Tests\Glovo\Laas;
 
-
 use Dots\Glovo\Laas\Client\GlovoConnector;
 use Tests\TestCase;
 
 class GlovoLaasServiceProviderTest extends TestCase
 {
-
     protected function defineEnvironment($app): void
     {
         $app['config']->set('glovo-laas.auth.clientId', 'SOME_CLIENT_ID');

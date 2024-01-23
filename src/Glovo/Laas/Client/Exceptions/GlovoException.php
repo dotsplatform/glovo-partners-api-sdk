@@ -7,7 +7,6 @@
 
 namespace Dots\Glovo\Laas\Client\Exceptions;
 
-
 use Dots\Glovo\Laas\Client\Responses\ErrorResponseDTO;
 use Exception;
 use Throwable;
@@ -16,7 +15,7 @@ class GlovoException extends Exception
 {
     public function __construct(
         private ErrorResponseDTO $errorResponseDTO,
-        string $message = "",
+        string $message = '',
         int $code = 0,
         ?Throwable $previous = null,
     ) {

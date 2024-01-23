@@ -21,18 +21,19 @@ abstract class BaseGlovoCommand extends Command
 
     protected function assertIntValue(mixed $value): int
     {
-        if (!is_numeric($value)) {
+        if (! is_numeric($value)) {
             throw new InvalidArgumentException('Value must be integer');
         }
-        return (int)$value;
+
+        return (int) $value;
     }
 
     protected function assertStringValue(mixed $value): string
     {
-        if (!is_string($value)) {
+        if (! is_string($value)) {
             throw new InvalidArgumentException('Value must be integer');
         }
+
         return $value;
     }
-
 }

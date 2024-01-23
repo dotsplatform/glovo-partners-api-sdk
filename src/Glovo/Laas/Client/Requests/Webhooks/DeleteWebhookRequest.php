@@ -18,6 +18,7 @@ use Saloon\Enums\Method;
 class DeleteWebhookRequest extends BaseGlovoRequest
 {
     private const ENDPOINT_TEMPLATE = '/v2/laas/webhooks/%d';
+
     protected Method $method = Method::DELETE;
 
     public function __construct(
@@ -29,5 +30,4 @@ class DeleteWebhookRequest extends BaseGlovoRequest
     {
         return sprintf(self::ENDPOINT_TEMPLATE, $this->webhookId);
     }
-
 }

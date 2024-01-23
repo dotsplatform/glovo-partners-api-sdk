@@ -10,6 +10,7 @@ namespace Dots\Glovo\Laas\Client\Responses;
 class OrderCourierPositionResponseDTO extends GlovoResponseDTO
 {
     protected float $latitude;
+
     protected float $longitude;
 
     public function getLatitude(): float
@@ -21,5 +22,4 @@ class OrderCourierPositionResponseDTO extends GlovoResponseDTO
     {
         return $this->longitude;
     }
-
 }

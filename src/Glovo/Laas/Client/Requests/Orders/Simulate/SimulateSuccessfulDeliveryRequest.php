@@ -16,12 +16,10 @@ class SimulateSuccessfulDeliveryRequest extends PostGlovoRequest
     public function __construct(
         protected readonly string $trackingNumber,
     ) {
-
     }
 
     public function resolveEndpoint(): string
     {
         return sprintf(self::ENDPOINT_TEMPLATE, $this->trackingNumber);
     }
-
 }

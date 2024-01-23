@@ -11,5 +11,4 @@ enum PackageContentType: string
 {
     case FOOD = 'FOOD';
     case GENERIC_PARCEL = 'GENERIC_PARCEL';
-
 }

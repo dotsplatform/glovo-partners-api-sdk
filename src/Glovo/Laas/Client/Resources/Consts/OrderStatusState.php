@@ -32,5 +32,4 @@ enum OrderStatusState: string
             self::DELIVERED,
         ], true);
     }
-
 }

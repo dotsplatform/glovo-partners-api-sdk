@@ -11,5 +11,4 @@ enum EstimatedTimeOfArrivalType: string
 {
     case PICKUP = 'PICKUP';
     case DELIVERY = 'DELIVERY';
-
 }

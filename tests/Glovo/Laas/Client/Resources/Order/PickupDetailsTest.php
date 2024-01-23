@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources\Order;
 
-
 use Dots\Glovo\Laas\Client\Resources\Order\PickupDetails;
 use Tests\TestCase;
 
@@ -47,7 +46,7 @@ class PickupDetailsTest extends TestCase
                     'streetNumber' => '123',
                     'coordinates' => [
                         'latitude' => 40.712776,
-                        'longitude' => -74.005974
+                        'longitude' => -74.005974,
                     ],
                 ],
                 '12345',
@@ -65,7 +64,7 @@ class PickupDetailsTest extends TestCase
                     'streetNumber' => '456',
                     'coordinates' => [
                         'latitude' => 34.052235,
-                        'longitude' => -118.243683
+                        'longitude' => -118.243683,
                     ],
                 ],
                 null,

@@ -14,6 +14,7 @@ class Price extends DTO
 {
     // The currency codes follow the ISO 4217 format. e.g. EUR, USD, GBP, UAH, etc.
     protected string $currencyCode;
+
     protected float $value;
 
     protected function assertConstructDataIsValid(array $data): void
@@ -21,7 +22,7 @@ class Price extends DTO
         if (empty($data['currencyCode'])) {
             throw new InvalidArgumentException('Price currency is required');
         }
-        if (!isset($data['value'])) {
+        if (! isset($data['value'])) {
             throw new InvalidArgumentException('Price value is required');
         }
         if ($data['value'] < 0) {
@@ -38,5 +39,4 @@ class Price extends DTO
     {
         return $this->value;
     }
-
 }

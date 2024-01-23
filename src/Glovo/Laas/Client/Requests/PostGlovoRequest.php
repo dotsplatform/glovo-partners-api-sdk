@@ -14,6 +14,6 @@ use Saloon\Traits\Body\HasJsonBody;
 abstract class PostGlovoRequest extends BaseGlovoRequest implements HasBody
 {
     use HasJsonBody;
-    protected Method $method = Method::POST;
 
+    protected Method $method = Method::POST;
 }

@@ -13,11 +13,13 @@ use Dots\Glovo\Laas\Client\Resources\Consts\EstimatedTimeOfArrivalType;
 class EstimatedTimeOfArrival extends DTO
 {
     protected EstimatedTimeOfArrivalType $type;
+
     protected GlovoDateTime $eta;
 
     public static function fromArray(array $data): static
     {
         $data['eta'] = GlovoDateTime::fromString($data['eta']);
+
         return parent::fromArray($data);
     }
 
@@ -35,5 +37,4 @@ class EstimatedTimeOfArrival extends DTO
     {
         return $this->eta;
     }
-
 }

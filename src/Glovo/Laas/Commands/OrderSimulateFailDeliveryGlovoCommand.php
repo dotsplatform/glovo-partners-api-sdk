@@ -17,5 +17,4 @@ class OrderSimulateFailDeliveryGlovoCommand extends BaseGlovoCommand
         $trackingNumber = $this->assertStringValue($this->argument('trackingNumber'));
         $connector->simulateFailedDelivery($trackingNumber);
     }
-
 }

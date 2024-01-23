@@ -41,12 +41,11 @@ class CreateOrderRequest extends PostGlovoRequest
         protected readonly CreateOrderDTO $dto,
         private readonly bool $stageEnv = true,
     ) {
-
     }
 
     protected function defaultBody(): array
     {
-      return $this->dto->toRequestData($this->stageEnv);
+        return $this->dto->toRequestData($this->stageEnv);
     }
 
     public function resolveEndpoint(): string
@@ -62,6 +61,7 @@ class CreateOrderRequest extends PostGlovoRequest
     public function getRequestException(Response $response, ?Throwable $senderException): ?Throwable
     {
         $errorResponse = ErrorResponseDTO::fromResponse($response);
+
         return new GlovoException($errorResponse);
     }
 }

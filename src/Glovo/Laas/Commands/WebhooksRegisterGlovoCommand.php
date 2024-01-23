@@ -21,7 +21,7 @@ class WebhooksRegisterGlovoCommand extends BaseGlovoCommand
         $connector = $this->getClovoConnector();
         try {
             $dto = $connector->registerWebhook($this->getRegisterWebhookDTO());
-            $this->info('Webhook registered. ID: ' . $dto->getWebhook()->getWebhookId());
+            $this->info('Webhook registered. ID: '.$dto->getWebhook()->getWebhookId());
         } catch (SaloonException $e) {
             $this->error($e->getMessage());
         }

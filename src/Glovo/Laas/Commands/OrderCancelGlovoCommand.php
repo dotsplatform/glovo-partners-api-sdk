@@ -17,5 +17,4 @@ class OrderCancelGlovoCommand extends BaseGlovoCommand
         $trackingNumber = $this->assertStringValue($this->argument('trackingNumber'));
         $connector->cancelOrder($trackingNumber);
     }
-
 }

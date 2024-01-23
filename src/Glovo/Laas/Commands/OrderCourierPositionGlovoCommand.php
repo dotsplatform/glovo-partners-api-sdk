@@ -18,5 +18,4 @@ class OrderCourierPositionGlovoCommand extends BaseGlovoCommand
         $order = $connector->getOrderCourierPosition($trackingNumber);
         dd($order);
     }
-
 }

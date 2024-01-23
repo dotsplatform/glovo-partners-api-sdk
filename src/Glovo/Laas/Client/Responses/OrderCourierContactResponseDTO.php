@@ -10,6 +10,7 @@ namespace Dots\Glovo\Laas\Client\Responses;
 class OrderCourierContactResponseDTO extends GlovoResponseDTO
 {
     protected string $courierName;
+
     // +34666666666
     protected string $courierPhone;
 
@@ -22,5 +23,4 @@ class OrderCourierContactResponseDTO extends GlovoResponseDTO
     {
         return $this->courierPhone;
     }
-
 }

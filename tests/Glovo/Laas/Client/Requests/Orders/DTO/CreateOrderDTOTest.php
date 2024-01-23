@@ -7,7 +7,6 @@
 
 namespace Glovo\Laas\Client\Requests\Orders\DTO;
 
-
 use Dots\Glovo\Laas\Client\Requests\Orders\DTO\CreateOrderDTO;
 use Tests\TestCase;
 

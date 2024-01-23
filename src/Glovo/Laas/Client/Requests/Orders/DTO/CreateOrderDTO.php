@@ -18,11 +18,16 @@ class CreateOrderDTO extends DTO
 {
     // Order delivery address
     protected Address $address;
+
     // Contact of the recipient
     protected Contact $contact;
+
     protected ?PackageDetails $packageDetails;
+
     protected ?string $packageId;
+
     protected PickupDetails $pickupDetails;
+
     protected ?OrderPrice $price;
 
     public function toRequestData(bool $stageEnv): array

@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources\Order;
 
-
 use Dots\Glovo\Laas\Client\Resources\Order\StateChangeHistory;
 use Dots\Glovo\Laas\Client\Resources\Order\StateChangeHistoryList;
 use Tests\TestCase;

@@ -43,5 +43,4 @@ class RegisterWebhookRequest extends PostGlovoRequest
     {
         return self::ENDPOINT;
     }
-
 }

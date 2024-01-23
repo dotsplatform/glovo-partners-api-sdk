@@ -11,5 +11,4 @@ enum WebhookEventType: string
 {
     case STATUS_UPDATE = 'STATUS_UPDATE';
     case POSITION_UPDATE = 'POSITION_UPDATE';
-
 }

@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources;
 
-
 use Dots\Glovo\Laas\Client\Resources\Address;
 use Dots\Glovo\Laas\Client\Resources\Coordinates;
 use Tests\TestCase;
@@ -28,7 +27,7 @@ class AddressTest extends TestCase
                 [
                     'latitude' => 40.712776,
                     'longitude' => -74.005974,
-                ]
+                ],
             ],
             'address without optional fields' => [
                 '456 Elm St',
@@ -38,7 +37,7 @@ class AddressTest extends TestCase
                 null,
                 null,
                 null,
-                null
+                null,
             ],
         ];
     }

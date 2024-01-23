@@ -36,13 +36,14 @@ class GlovoDateTime extends DTO
         // date is in ISO 8601 format
         // eg 2023-05-13T13:21:22Z
         $data['date'] = new DateTime($data['date']);
+
         return parent::fromArray($data);
     }
 
     public function toArray(): array
     {
         return [
-            'date' => $this->date->format(DateTime::ATOM)
+            'date' => $this->date->format(DateTime::ATOM),
         ];
     }
 
@@ -55,5 +56,4 @@ class GlovoDateTime extends DTO
     {
         return $this->date->getTimestamp();
     }
-
 }

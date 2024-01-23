@@ -35,8 +35,7 @@ enum ErrorCodes: string
     public static function fromResponse(string $value): self
     {
         $code = self::tryFrom($value);
+
         return $code ?? self::OTHER;
     }
-
-
 }

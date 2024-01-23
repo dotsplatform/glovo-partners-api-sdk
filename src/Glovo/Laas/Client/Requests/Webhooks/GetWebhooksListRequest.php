@@ -32,5 +32,4 @@ class GetWebhooksListRequest extends BaseGlovoRequest
     {
         return self::ENDPOINT;
     }
-
 }

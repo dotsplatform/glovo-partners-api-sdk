@@ -13,7 +13,6 @@ use Orchestra\Testbench\TestCase as LaravelTestCase;
 
 abstract class TestCase extends LaravelTestCase
 {
-
     protected function getPackageProviders($app): array
     {
         return [
@@ -25,5 +24,4 @@ abstract class TestCase extends LaravelTestCase
     {
         return Str::uuid()->__toString();
     }
-
 }

@@ -29,9 +29,9 @@ class OrderValidateGlovoCommand extends BaseGlovoCommand
                 'rawAddress' => 'Tarasa Shevchenko Blvd, 16, Kyiv, Ukraine, 02000',
             ],
             'pickupDetails' => [
-//                'contactPhone' => '+380631837252',
-//                'pickupOrderCode' => '123456',
-//                'pickupPhone' => '+380631837251',
+                //                'contactPhone' => '+380631837252',
+                //                'pickupOrderCode' => '123456',
+                //                'pickupPhone' => '+380631837251',
                 'address' => [
                     'cityName' => 'Kyiv',
                     'country' => 'Ukraine',
@@ -39,8 +39,7 @@ class OrderValidateGlovoCommand extends BaseGlovoCommand
                 ],
             ],
         ];
+
         return ValidateOrderDTO::fromArray($data);
     }
-
-
 }

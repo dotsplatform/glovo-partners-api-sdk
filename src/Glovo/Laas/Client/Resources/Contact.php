@@ -12,7 +12,9 @@ use Dots\Data\DTO;
 class Contact extends DTO
 {
     protected string $name;
+
     protected ?string $phone;
+
     protected ?string $email;
 
     public function getName(): string
@@ -29,5 +31,4 @@ class Contact extends DTO
     {
         return $this->email;
     }
-
 }

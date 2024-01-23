@@ -16,6 +16,7 @@ class ValidateOrderResponseDTO extends GlovoResponseDTO
     public static function fromArray(array $data): static
     {
         $data['validationResult'] = ValidationResult::from($data['validationResult']);
+
         return parent::fromArray($data);
     }
 
@@ -28,5 +29,4 @@ class ValidateOrderResponseDTO extends GlovoResponseDTO
     {
         return $this->validationResult;
     }
-
 }

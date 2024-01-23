@@ -20,6 +20,7 @@ use Saloon\Enums\Method;
 class SimulateWebhookRequest extends BaseGlovoRequest
 {
     private const ENDPOINT_TEMPLATE = '/v2/laas/webhooks/%d/simulate';
+
     protected Method $method = Method::POST;
 
     public function __construct(
@@ -31,5 +32,4 @@ class SimulateWebhookRequest extends BaseGlovoRequest
     {
         return sprintf(self::ENDPOINT_TEMPLATE, $this->webhookId);
     }
-
 }

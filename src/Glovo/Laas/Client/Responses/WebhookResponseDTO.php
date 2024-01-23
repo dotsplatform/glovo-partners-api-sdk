@@ -16,16 +16,17 @@ class WebhookResponseDTO extends GlovoResponseDTO
 
     public static function fromResponse(Response $response): static
     {
-
         $data = [
             'webhook' => $response->json(),
         ];
+
         return static::fromArray($data);
     }
 
     public static function fromArray(array $data): static
     {
         $data['webhook'] = WebhookDTO::fromArray($data['webhook']);
+
         return parent::fromArray($data);
     }
 

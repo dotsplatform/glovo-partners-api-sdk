@@ -13,8 +13,11 @@ use Dots\Glovo\Laas\Client\Resources\Consts\PackageContentType;
 class PackageDetails extends DTO
 {
     protected PackageContentType $contentType;
+
     protected ?string $description;
+
     protected ?float $parcelValue;
+
     protected ?float $weight;
 
     public function getContentType(): PackageContentType
@@ -36,5 +39,4 @@ class PackageDetails extends DTO
     {
         return $this->weight;
     }
-
 }

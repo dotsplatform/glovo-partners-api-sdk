@@ -7,9 +7,8 @@
 
 namespace Dots\Glovo\Laas\Client\Requests\Orders;
 
-
-use Dots\Glovo\Laas\Client\Responses\ValidateOrderResponseDTO;
 use Dots\Glovo\Laas\Client\Requests\BaseGlovoRequest;
+use Dots\Glovo\Laas\Client\Responses\ValidateOrderResponseDTO;
 use Saloon\Http\Response;
 
 class WorkingAreaRequest extends BaseGlovoRequest
@@ -25,5 +24,4 @@ class WorkingAreaRequest extends BaseGlovoRequest
     {
         return self::ENDPOINT;
     }
-
 }

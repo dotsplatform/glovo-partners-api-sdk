@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources\Order;
 
-
 use Dots\Glovo\Laas\Client\Resources\Order\PackageDetails;
 use Tests\TestCase;
 
@@ -66,5 +65,4 @@ class PackageDetailsTest extends TestCase
             ],
         ];
     }
-
 }

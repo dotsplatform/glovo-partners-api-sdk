@@ -14,6 +14,7 @@ use Dots\Glovo\Laas\Client\Resources\Order\PickupDetails;
 class ValidateOrderDTO extends DTO
 {
     protected Address $address;
+
     protected PickupDetails $pickupDetails;
 
     public function getAddress(): Address
@@ -25,5 +26,4 @@ class ValidateOrderDTO extends DTO
     {
         return $this->pickupDetails;
     }
-
 }

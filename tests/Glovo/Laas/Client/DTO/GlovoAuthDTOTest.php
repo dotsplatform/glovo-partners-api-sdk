@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\DTO;
 
-
 use Dots\Glovo\Laas\Client\DTO\GlovoAuthDTO;
 use Tests\TestCase;
 
@@ -47,7 +46,7 @@ class GlovoAuthDTOTest extends TestCase
             'clientId' => $clientId,
             'clientSecret' => $clientSecret,
         ]);
-        $glovoAuthDTO =  GlovoAuthDTO::fromArray($dto->toArray());
+        $glovoAuthDTO = GlovoAuthDTO::fromArray($dto->toArray());
 
         $this->assertEquals($clientId, $glovoAuthDTO->getClientId());
         $this->assertEquals($clientSecret, $glovoAuthDTO->getClientSecret());

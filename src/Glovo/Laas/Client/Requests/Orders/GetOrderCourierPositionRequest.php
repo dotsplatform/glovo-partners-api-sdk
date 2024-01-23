@@ -25,7 +25,6 @@ class GetOrderCourierPositionRequest extends BaseGlovoRequest
     public function __construct(
         protected readonly string $trackingNumber,
     ) {
-
     }
 
     public function resolveEndpoint(): string

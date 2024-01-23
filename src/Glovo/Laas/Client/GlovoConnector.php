@@ -42,6 +42,7 @@ class GlovoConnector extends Connector
     use AlwaysThrowOnErrors;
 
     private const BASE_PROD_URL = 'https://api.glovoapp.com';
+
     private const BASE_STAGE_URL = 'https://stageapi.glovoapp.com';
 
     public function __construct(
@@ -61,39 +62,45 @@ class GlovoConnector extends Connector
     public function validateOrder(ValidateOrderDTO $dto): ValidateOrderResponseDTO
     {
         $this->authenticateRequests();
+
         return $this->send(new ValidateOrderRequest($dto))->dto();
     }
 
     public function workingArea(): array
     {
         $this->authenticateRequests();
+
         return $this->send(new WorkingAreaRequest())->dto();
     }
 
     /**
      * @throws GlovoException
-    */
+     */
     public function createOrder(CreateOrderDTO $dto): OrderResponseDTO
     {
         $this->authenticateRequests();
+
         return $this->send(new CreateOrderRequest($dto, $this->stageEnv))->dto();
     }
 
     public function getOrder(string $trackingNumber): OrderResponseDTO
     {
         $this->authenticateRequests();
+
         return $this->send(new GetOrderRequest($trackingNumber))->dto();
     }
 
     public function getOrderCourierContact(string $trackingNumber): OrderCourierContactResponseDTO
     {
         $this->authenticateRequests();
+
         return $this->send(new GetOrderCourierContactRequest($trackingNumber))->dto();
     }
 
     public function getOrderCourierPosition(string $trackingNumber): OrderCourierPositionResponseDTO
     {
         $this->authenticateRequests();
+
         return $this->send(new GetOrderCourierPositionRequest($trackingNumber))->dto();
     }
 
@@ -120,12 +127,14 @@ class GlovoConnector extends Connector
     public function getWebhooks(): WebhooksListResponseDTO
     {
         $this->authenticateRequests();
+
         return $this->send(new GetWebhooksListRequest())->dto();
     }
 
     public function registerWebhook(RegisterWebhookDTO $dto): WebhookResponseDTO
     {
         $this->authenticateRequests();
+
         return $this->send(new RegisterWebhookRequest($dto))->dto();
     }
 
@@ -166,7 +175,7 @@ class GlovoConnector extends Connector
 
     private function assertIsStagingEnv(): void
     {
-        if (!$this->isStageEnv()) {
+        if (! $this->isStageEnv()) {
             throw new RuntimeException('This method is only available in staging environment');
         }
     }
@@ -180,5 +189,4 @@ class GlovoConnector extends Connector
     {
         return $this->authDto;
     }
-
 }
