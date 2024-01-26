@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0e2bd9be4c53ba8b708ff1974d5a643",
+    "content-hash": "5b6ad5d3ff153cf67a9455ee51cc6c26",
     "packages": [
         {
             "name": "brick/math",
@@ -2958,16 +2958,16 @@
         },
         {
             "name": "saloonphp/saloon",
-            "version": "v3.4.1",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/saloonphp/saloon.git",
-                "reference": "3222ff8fbe16c7defbf253ef226985e02068f93c"
+                "reference": "1a6981692a9df5e5a6c11a40e4b471a0f243a044"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/saloonphp/saloon/zipball/3222ff8fbe16c7defbf253ef226985e02068f93c",
-                "reference": "3222ff8fbe16c7defbf253ef226985e02068f93c",
+                "url": "https://api.github.com/repos/saloonphp/saloon/zipball/1a6981692a9df5e5a6c11a40e4b471a0f243a044",
+                "reference": "1a6981692a9df5e5a6c11a40e4b471a0f243a044",
                 "shasum": ""
             },
             "require": {
@@ -3025,7 +3025,7 @@
             ],
             "support": {
                 "issues": "https://github.com/saloonphp/saloon/issues",
-                "source": "https://github.com/saloonphp/saloon/tree/v3.4.1"
+                "source": "https://github.com/saloonphp/saloon/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -3037,7 +3037,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2024-01-14T19:58:08+00:00"
+            "time": "2024-01-18T18:37:58+00:00"
         },
         {
             "name": "symfony/console",
