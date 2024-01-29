@@ -23,18 +23,19 @@ use Saloon\Http\Faking\MockResponse;
 
 class GlovoResponseMocker
 {
-    public static function mockSuccessCreateOrder(
-        array $data = [],
-    ): void {
+    public static function mockSuccessCreateOrder(array $data = []): array
+    {
         $orderData = OrderInfoSuccessResponseGenerator::generate($data);
         $authData = GlovoOAuthResponseGenerator::generate();
         MockClient::global([
             AuthenticateRequest::class => MockResponse::make($authData),
             CreateOrderRequest::class => MockResponse::make($orderData),
         ]);
+
+        return $orderData;
     }
 
-    public static function mockSuccessValidateOrder(ValidationResult $result): void
+    public static function mockSuccessValidateOrder(?ValidationResult $result = null): array
     {
         $data = ValidateOrderResponseGenerator::generateSuccess($result);
         $authData = GlovoOAuthResponseGenerator::generate();
@@ -42,27 +43,32 @@ class GlovoResponseMocker
             AuthenticateRequest::class => MockResponse::make($authData),
             ValidateOrderRequest::class => MockResponse::make($data),
         ]);
+
+        return $data;
     }
 
-    public static function mockSuccessGetOrder(
-        array $data = [],
-    ): void {
+    public static function mockSuccessGetOrder(array $data = []): array
+    {
         $orderData = OrderInfoSuccessResponseGenerator::generate($data);
         $authData = GlovoOAuthResponseGenerator::generate();
         MockClient::global([
             AuthenticateRequest::class => MockResponse::make($authData),
             GetOrderRequest::class => MockResponse::make($orderData),
         ]);
+
+        return $orderData;
     }
 
-    public static function mockSuccessGetOrderCourierContact(): void
+    public static function mockSuccessGetOrderCourierContact(): array
     {
-        $orderData = OrderCourierResponseGenerator::generate();
+        $courierData = OrderCourierResponseGenerator::generate();
         $authData = GlovoOAuthResponseGenerator::generate();
         MockClient::global([
             AuthenticateRequest::class => MockResponse::make($authData),
-            GetOrderCourierContactRequest::class => MockResponse::make($orderData),
+            GetOrderCourierContactRequest::class => MockResponse::make($courierData),
         ]);
+
+        return $courierData;
     }
 
     public static function mockSuccessCancelOrder(): void
@@ -74,11 +80,13 @@ class GlovoResponseMocker
         ]);
     }
 
-    public static function mockGeAccessToken(array $data = []): void
+    public static function mockGeAccessToken(array $data = []): array
     {
         $responseData = GlovoOAuthResponseGenerator::generate($data);
         MockClient::global([
             AuthenticateRequest::class => MockResponse::make($responseData),
         ]);
+
+        return $responseData;
     }
 }

@@ -11,10 +11,10 @@ use Dots\Glovo\Laas\Client\Resources\Consts\ValidationResult;
 
 class ValidateOrderResponseGenerator
 {
-    public static function generateSuccess(ValidationResult $result): array
+    public static function generateSuccess(?ValidationResult $result = null): array
     {
         return [
-            'validationResult' => $result->value,
+            'validationResult' => $result->value ?? ValidationResult::EXECUTABLE->value,
         ];
     }
 }
