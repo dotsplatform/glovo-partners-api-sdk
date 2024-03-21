@@ -13,8 +13,11 @@ use Dots\Glovo\Laas\Client\Resources\Consts\WebhookEventType;
 class WebhookDTO extends DTO
 {
     protected int $webhookId;
+
     protected string $callbackUrl;
+
     protected WebhookEventType $eventSubscribed;
+
     protected ?RetryConfig $retryConfig;
 
     public static function fromArray(array $data): static
@@ -24,6 +27,7 @@ class WebhookDTO extends DTO
         if (is_string($data['eventSubscribed'])) {
             $data['eventSubscribed'] = WebhookEventType::from($data['eventSubscribed']);
         }
+
         return parent::fromArray($data);
     }
 
@@ -46,5 +50,4 @@ class WebhookDTO extends DTO
     {
         return $this->retryConfig;
     }
-
 }

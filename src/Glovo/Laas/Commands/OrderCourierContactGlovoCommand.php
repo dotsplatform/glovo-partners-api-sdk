@@ -24,5 +24,4 @@ class OrderCourierContactGlovoCommand extends BaseGlovoCommand
             $this->error($e->getMessage());
         }
     }
-
 }

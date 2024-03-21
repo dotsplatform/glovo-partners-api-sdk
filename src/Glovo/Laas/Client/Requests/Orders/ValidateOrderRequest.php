@@ -44,6 +44,4 @@ class ValidateOrderRequest extends PostGlovoRequest
     {
         return self::ENDPOINT;
     }
-
-
 }

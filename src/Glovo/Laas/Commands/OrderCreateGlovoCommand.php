@@ -42,19 +42,18 @@ class OrderCreateGlovoCommand extends BaseGlovoCommand
                     'rawAddress' => 'Tarasa Shevchenko Blvd, 18, Kyiv, Ukraine, 02000',
                 ],
             ],
-//            'price' => [
-//                'delivery' => [
-//                    'value' => 0,
-//                    'currencyCode' => 'UAH',
-//                ],
-//                'parcel' => [
-//                    'value' => 0,
-//                    'currencyCode' => 'UAH',
-//                ],
-//            ],
+            //            'price' => [
+            //                'delivery' => [
+            //                    'value' => 0,
+            //                    'currencyCode' => 'UAH',
+            //                ],
+            //                'parcel' => [
+            //                    'value' => 0,
+            //                    'currencyCode' => 'UAH',
+            //                ],
+            //            ],
         ];
+
         return CreateOrderDTO::fromArray($data);
     }
-
-
 }

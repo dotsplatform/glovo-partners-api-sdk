@@ -14,6 +14,7 @@ use Dots\Glovo\Laas\Client\Resources\Webhook\RetryConfig;
 class RegisterWebhookDTO extends DTO
 {
     protected string $callbackUrl;
+
     protected WebhookEventType $eventType;
 
     /**
@@ -21,6 +22,7 @@ class RegisterWebhookDTO extends DTO
      * If not provided, no authorization header will be sent.
      */
     protected ?string $partnerSecret;
+
     protected ?RetryConfig $retryConfig;
 
     public static function fromArray(array $data): static
@@ -30,6 +32,7 @@ class RegisterWebhookDTO extends DTO
         if (is_string($data['eventType'])) {
             $data['eventType'] = WebhookEventType::from($data['eventType']);
         }
+
         return parent::fromArray($data);
     }
 
@@ -52,5 +55,4 @@ class RegisterWebhookDTO extends DTO
     {
         return $this->retryConfig;
     }
-
 }

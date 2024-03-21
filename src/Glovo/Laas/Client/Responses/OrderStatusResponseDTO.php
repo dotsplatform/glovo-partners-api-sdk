@@ -14,12 +14,14 @@ use Dots\Glovo\Laas\Client\Resources\GlovoDateTime;
 class OrderStatusResponseDTO extends DTO
 {
     protected OrderStatusState $state;
+
     protected GlovoDateTime $updateTime;
 
     public static function fromArray(array $data): static
     {
         $data['state'] = OrderStatusState::from($data['state']);
         $data['updateTime'] = GlovoDateTime::fromString($data['updateTime']);
+
         return parent::fromArray($data);
     }
 
@@ -41,5 +43,4 @@ class OrderStatusResponseDTO extends DTO
     {
         return $this->updateTime;
     }
-
 }

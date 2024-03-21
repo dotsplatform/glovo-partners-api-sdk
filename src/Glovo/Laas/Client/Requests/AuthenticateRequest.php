@@ -14,12 +14,12 @@ use Saloon\Http\Response;
 class AuthenticateRequest extends PostGlovoRequest
 {
     private const ENDPOINT = '/oauth/token';
+
     private const GRANT_TYPE_CREDENTIALS = 'client_credentials';
 
     public function __construct(
         private readonly GlovoAuthDTO $dto
     ) {
-
     }
 
     public function createDtoFromResponse(Response $response): GlovoOAuthResponse
@@ -40,5 +40,4 @@ class AuthenticateRequest extends PostGlovoRequest
     {
         return self::ENDPOINT;
     }
-
 }

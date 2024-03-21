@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources;
 
-
 use Dots\Glovo\Laas\Client\Resources\Coordinates;
 use Tests\TestCase;
 

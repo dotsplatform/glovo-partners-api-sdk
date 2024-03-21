@@ -12,6 +12,7 @@ use Dots\Data\DTO;
 class GlovoAuthDTO extends DTO
 {
     protected string $clientId;
+
     protected string $clientSecret;
 
     public static function make(string $clientId, string $clientSecret): self
@@ -31,6 +32,4 @@ class GlovoAuthDTO extends DTO
     {
         return $this->clientSecret;
     }
-
-
 }

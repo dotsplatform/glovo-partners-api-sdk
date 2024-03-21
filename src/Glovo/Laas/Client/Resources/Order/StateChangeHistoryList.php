@@ -24,5 +24,4 @@ class StateChangeHistoryList extends Collection
             )
         );
     }
-
 }

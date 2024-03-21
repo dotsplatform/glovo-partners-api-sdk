@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources;
 
-
 use DateTime;
 use Dots\Glovo\Laas\Client\Resources\EstimatedTimeOfArrival;
 use Tests\TestCase;
@@ -47,6 +46,4 @@ class EstimatedTimeOfArrivalTest extends TestCase
             ],
         ];
     }
-
-
 }

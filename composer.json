@@ -5,7 +5,7 @@
     "require": {
         "php": "^8.2",
         "dotsplatform/utils": "^2.0",
-        "saloonphp/saloon": "^3.4",
+        "saloonphp/saloon": "^3.5",
         "illuminate/support": "^10.2"
     },
     "require-dev": {
@@ -35,16 +35,6 @@
             "email": "yehor@dotsplatform.com"
         }
     ],
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Barryvdh\\Debugbar\\ServiceProvider"
-            ],
-            "aliases": {
-                "Debugbar": "Barryvdh\\Debugbar\\Facade"
-            }
-        }
-    },
     "minimum-stability": "stable",
     "scripts": {
         "post-autoload-dump": [
@@ -64,6 +54,9 @@
         ],
         "test": [
             "@php vendor/bin/phpunit"
+        ],
+        "init-pre-commit": [
+            "cp .git-hooks-pre-commit .git/hooks/pre-commit"
         ]
     }
 }

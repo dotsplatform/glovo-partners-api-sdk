@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources;
 
-
 use DateTime;
 use Dots\Glovo\Laas\Client\Resources\GlovoDateTime;
 use Tests\TestCase;
@@ -55,5 +54,4 @@ class GlovoDateTimeTest extends TestCase
 
         $this->assertEquals($expectedDateString, $glovoDateTime->__toString());
     }
-
 }

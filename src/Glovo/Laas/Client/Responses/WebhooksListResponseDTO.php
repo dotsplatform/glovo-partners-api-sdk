@@ -18,15 +18,17 @@ class WebhooksListResponseDTO extends GlovoResponseDTO
     public static function fromResponse(Response $response): static
     {
         $data = $response->json('data');
-        if (!is_array($data)) {
+        if (! is_array($data)) {
             throw new InvalidArgumentException('Invalid response data');
         }
+
         return static::fromArray($data);
     }
 
     public static function fromArray(array $data): static
     {
         $data['webhookList'] = WebhooksList::fromArray($data['webhookList'] ?? []);
+
         return parent::fromArray($data);
     }
 
@@ -34,5 +36,4 @@ class WebhooksListResponseDTO extends GlovoResponseDTO
     {
         return $this->webhookList;
     }
-
 }

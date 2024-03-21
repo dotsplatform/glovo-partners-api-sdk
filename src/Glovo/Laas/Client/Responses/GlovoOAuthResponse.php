@@ -12,16 +12,22 @@ use Saloon\Http\Response;
 class GlovoOAuthResponse extends GlovoResponseDTO
 {
     protected string $accessToken;
+
     protected int $expiresAt;
+
     protected string $refreshToken;
+
     protected ?string $twoFactorToken;
+
     protected string $tokenType;
+
     protected ?string $scope;
 
     public static function fromResponse(Response $response): static
     {
         $data = $response->json();
         $data['expiresAt'] = time() + $data['expiresIn'];
+
         return static::fromArray($data);
     }
 
@@ -64,5 +70,4 @@ class GlovoOAuthResponse extends GlovoResponseDTO
     {
         return $this->expiresAt < time();
     }
-
 }

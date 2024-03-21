@@ -18,5 +18,4 @@ class OrderInfoGlovoCommand extends BaseGlovoCommand
         $order = $connector->getOrder($trackingNumber);
         dd($order);
     }
-
 }

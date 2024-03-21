@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources\Order;
 
-
 use Dots\Glovo\Laas\Client\Resources\Order\OrderPrice;
 use Tests\TestCase;
 
@@ -54,5 +53,4 @@ class OrderPriceTest extends TestCase
             ],
         ];
     }
-
 }

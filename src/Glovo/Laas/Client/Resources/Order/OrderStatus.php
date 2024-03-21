@@ -14,6 +14,7 @@ use Dots\Glovo\Laas\Client\Resources\GlovoDateTime;
 class OrderStatus extends DTO
 {
     protected GlovoDateTime $createdAt;
+
     protected GlovoDateTime $lastUpdateAt;
 
     // Parcel state delivery time
@@ -21,6 +22,7 @@ class OrderStatus extends DTO
     protected ?string $deliveryAt;
 
     protected OrderStatusState $state;
+
     protected StateChangeHistoryList $stateChangeHistory;
 
     public static function fromArray(array $data): static
@@ -28,6 +30,7 @@ class OrderStatus extends DTO
         $data['createdAt'] = GlovoDateTime::fromString($data['createdAt']);
         $data['lastUpdateAt'] = GlovoDateTime::fromString($data['lastUpdateAt']);
         $data['stateChangeHistory'] = StateChangeHistoryList::fromArray($data['stateChangeHistory'] ?? []);
+
         return parent::fromArray($data);
     }
 
@@ -70,5 +73,4 @@ class OrderStatus extends DTO
     {
         return $this->stateChangeHistory;
     }
-
 }

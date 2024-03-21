@@ -14,15 +14,8 @@ use Dots\Glovo\Laas\Client\Resources\Order\PickupDetails;
 class ValidateOrderDTO extends DTO
 {
     protected Address $address;
+
     protected PickupDetails $pickupDetails;
-
-    public static function fromArray(array $data): static
-    {
-        $data['address'] = Address::fromArray($data['address']);
-        $data['pickupDetails'] = PickupDetails::fromArray($data['pickupDetails']);
-
-        return parent::fromArray($data);
-    }
 
     public function getAddress(): Address
     {
@@ -33,5 +26,4 @@ class ValidateOrderDTO extends DTO
     {
         return $this->pickupDetails;
     }
-
 }

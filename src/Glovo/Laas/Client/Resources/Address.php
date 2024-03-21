@@ -12,12 +12,19 @@ use Dots\Data\DTO;
 class Address extends DTO
 {
     protected string $rawAddress;
+
     protected string $cityName;
+
     protected ?string $country;
+
     protected ?string $postalCode;
+
     protected ?string $details;
+
     protected ?string $streetName;
+
     protected ?string $streetNumber;
+
     protected ?Coordinates $coordinates;
 
     public function getRawAddress(): string
@@ -59,6 +66,4 @@ class Address extends DTO
     {
         return $this->coordinates;
     }
-
-
 }

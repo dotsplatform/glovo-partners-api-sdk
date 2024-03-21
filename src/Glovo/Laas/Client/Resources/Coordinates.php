@@ -12,6 +12,7 @@ use Dots\Data\DTO;
 class Coordinates extends DTO
 {
     protected float $latitude;
+
     protected float $longitude;
 
     public function getLatitude(): float
@@ -23,5 +24,4 @@ class Coordinates extends DTO
     {
         return $this->longitude;
     }
-
 }

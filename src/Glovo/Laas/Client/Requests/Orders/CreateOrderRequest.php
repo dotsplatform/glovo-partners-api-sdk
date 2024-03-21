@@ -36,13 +36,13 @@ class CreateOrderRequest extends PostGlovoRequest
 
     public function __construct(
         protected readonly CreateOrderDTO $dto,
+        private readonly bool $stageEnv = true,
     ) {
-
     }
 
     protected function defaultBody(): array
     {
-        return $this->dto->toArray();
+        return $this->dto->toRequestData($this->stageEnv);
     }
 
     public function resolveEndpoint(): string
@@ -54,6 +54,4 @@ class CreateOrderRequest extends PostGlovoRequest
     {
         return OrderResponseDTO::fromResponse($response);
     }
-
-
 }

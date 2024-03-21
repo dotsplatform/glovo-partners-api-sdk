@@ -7,7 +7,6 @@
 
 namespace Tests\Glovo\Laas\Client\Resources\Const;
 
-
 use Dots\Glovo\Laas\Client\Resources\Consts\OrderStatusState;
 use Tests\TestCase;
 
@@ -44,5 +43,4 @@ class OrderStatusStateTest extends TestCase
         $this->assertFalse(OrderStatusState::NOT_DELIVERED_NOT_RETURNED->isCourierAssigned());
         $this->assertFalse(OrderStatusState::RETURNED->isCourierAssigned());
     }
-
 }

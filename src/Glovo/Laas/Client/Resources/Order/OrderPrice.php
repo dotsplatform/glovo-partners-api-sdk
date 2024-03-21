@@ -13,6 +13,7 @@ use Dots\Glovo\Laas\Client\Resources\Price;
 class OrderPrice extends DTO
 {
     protected Price $delivery;
+
     protected Price $parcel;
 
     public function getDelivery(): Price
@@ -24,5 +25,4 @@ class OrderPrice extends DTO
     {
         return $this->parcel;
     }
-
 }

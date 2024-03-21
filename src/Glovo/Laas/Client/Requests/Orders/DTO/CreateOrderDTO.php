@@ -18,22 +18,26 @@ class CreateOrderDTO extends DTO
 {
     // Order delivery address
     protected Address $address;
+
     // Contact of the recipient
     protected Contact $contact;
+
     protected ?PackageDetails $packageDetails;
+
     protected ?string $packageId;
+
     protected PickupDetails $pickupDetails;
+
     protected ?OrderPrice $price;
 
-    public static function fromArray(array $data): static
+    public function toRequestData(bool $stageEnv): array
     {
-        $data['address'] = Address::fromArray($data['address']);
-        $data['contact'] = Contact::fromArray($data['contact']);
-        $data['packageDetails'] = isset($data['packageDetails']) ? PackageDetails::fromArray($data['packageDetails']) : null;
-        $data['pickupDetails'] = PickupDetails::fromArray($data['pickupDetails']);
-        $data['price'] = !empty($data['price']) ? OrderPrice::fromArray($data['price']) : null;
+        $data = $this->toArray();
+        if ($stageEnv) {
+            $data['price'] = null;
+        }
 
-        return parent::fromArray($data);
+        return $data;
     }
 
     public function getAddress(): Address
@@ -65,5 +69,4 @@ class CreateOrderDTO extends DTO
     {
         return $this->price;
     }
-
 }

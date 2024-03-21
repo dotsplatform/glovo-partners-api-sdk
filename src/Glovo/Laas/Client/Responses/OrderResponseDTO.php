@@ -19,23 +19,34 @@ use Dots\Glovo\Laas\Client\Resources\Order\StateChangeHistoryList;
 class OrderResponseDTO extends GlovoResponseDTO
 {
     protected string $trackingNumber;
+
     protected ?string $orderCode;
+
     protected bool $cancellable = true;
+
     protected ?EstimatedTimeOfArrival $estimatedTimeOfArrival;
+
     protected OrderStatus $status;
+
     protected StateChangeHistoryList $stateChangeHistory;
 
     protected Address $address;
+
     protected Contact $contact;
+
     protected ?PackageDetails $packageDetails;
+
     protected ?string $packageId;
+
     protected string $partnerId;
+
     protected PickupDetails $pickupDetails;
+
     protected ?OrderPrice $price;
 
     public static function fromArray(array $data): static
     {
-        $data['estimatedTimeOfArrival'] = !empty($data['estimatedTimeOfArrival']) ?
+        $data['estimatedTimeOfArrival'] = ! empty($data['estimatedTimeOfArrival']) ?
                 EstimatedTimeOfArrival::fromArray($data['estimatedTimeOfArrival']) :
                 null;
         $data['status'] = OrderStatus::fromArray($data['status']);
@@ -44,7 +55,7 @@ class OrderResponseDTO extends GlovoResponseDTO
         $data['contact'] = Contact::fromArray($data['contact']);
         $data['packageDetails'] = PackageDetails::fromArray($data['packageDetails']);
         $data['pickupDetails'] = PickupDetails::fromArray($data['pickupDetails']);
-        $data['price'] = !empty($data['price']) ? OrderPrice::fromArray($data['price']) : null;
+        $data['price'] = ! empty($data['price']) ? OrderPrice::fromArray($data['price']) : null;
 
         return parent::fromArray($data);
     }

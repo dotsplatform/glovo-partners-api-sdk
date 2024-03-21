@@ -14,6 +14,7 @@ class WebhooksList extends Collection
     public static function fromArray(array $data): self
     {
         $data = array_map(fn (array $item) => WebhookDTO::fromArray($item), $data);
+
         return new self($data);
     }
 }
