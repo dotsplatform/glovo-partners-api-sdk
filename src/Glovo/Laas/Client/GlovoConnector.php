@@ -191,6 +191,9 @@ class GlovoConnector extends Connector
         $this->send(new SimulateWebhookRequest($webhookId))->dto();
     }
 
+    /**
+     * @throws GlovoException
+     */
     public function getOrderStatusHistory(string $trackingNumber): OrderStatusHistoryResponseDTO
     {
         $this->authenticateRequests();
