@@ -17,6 +17,7 @@ use Dots\Glovo\Laas\Client\Requests\Orders\DTO\ValidateOrderDTO;
 use Dots\Glovo\Laas\Client\Requests\Orders\GetOrderCourierContactRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\GetOrderCourierPositionRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\GetOrderRequest;
+use Dots\Glovo\Laas\Client\Requests\Orders\OrderStatusHistoryRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\Simulate\SimulateFailedDeliveryRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\Simulate\SimulateSuccessfulDeliveryRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\ValidateOrderRequest;
@@ -31,6 +32,7 @@ use Dots\Glovo\Laas\Client\Responses\GlovoOAuthResponse;
 use Dots\Glovo\Laas\Client\Responses\OrderCourierContactResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderCourierPositionResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\OrderStatusHistoryResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\ValidateOrderResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\WebhookResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\WebhooksListResponseDTO;
@@ -187,6 +189,13 @@ class GlovoConnector extends Connector
         $this->assertIsStagingEnv();
         $this->authenticateRequests();
         $this->send(new SimulateWebhookRequest($webhookId))->dto();
+    }
+
+    public function getOrderStatusHistory(string $trackingNumber): OrderStatusHistoryResponseDTO
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new OrderStatusHistoryRequest($trackingNumber))->dto();
     }
 
     private function authenticateRequests(): void
