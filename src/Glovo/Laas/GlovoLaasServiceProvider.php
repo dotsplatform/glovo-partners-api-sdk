@@ -16,6 +16,7 @@ use Dots\Glovo\Laas\Commands\OrderCreateGlovoCommand;
 use Dots\Glovo\Laas\Commands\OrderInfoGlovoCommand;
 use Dots\Glovo\Laas\Commands\OrderSimulateFailDeliveryGlovoCommand;
 use Dots\Glovo\Laas\Commands\OrderSimulateSuccessfulDeliveryGlovoCommand;
+use Dots\Glovo\Laas\Commands\OrderStatusHistoryGlovoCommand;
 use Dots\Glovo\Laas\Commands\OrderValidateGlovoCommand;
 use Dots\Glovo\Laas\Commands\WebhooksDeleteGlovoCommand;
 use Dots\Glovo\Laas\Commands\WebhooksListGlovoCommand;
@@ -67,6 +68,7 @@ class GlovoLaasServiceProvider extends ServiceProvider
             WebhooksListGlovoCommand::class,
             WebhooksRegisterGlovoCommand::class,
             WebhooksSimulateGlovoCommand::class,
+            OrderStatusHistoryGlovoCommand::class,
         ]);
     }
 }
