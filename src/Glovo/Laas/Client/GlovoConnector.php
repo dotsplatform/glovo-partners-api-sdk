@@ -10,6 +10,11 @@ namespace Dots\Glovo\Laas\Client;
 use Dots\Glovo\Laas\Client\DTO\GlovoAuthDTO;
 use Dots\Glovo\Laas\Client\Exceptions\GlovoException;
 use Dots\Glovo\Laas\Client\Requests\AuthenticateRequest;
+use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\MenuDTO;
+use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\UploadMenuDTO;
+use Dots\Glovo\Laas\Client\Requests\Catalog\UploadMenuRequest;
+use Dots\Glovo\Laas\Client\Requests\Catalog\ValidateMenuRequest;
+use Dots\Glovo\Laas\Client\Requests\Catalog\VerifyMenuUploadRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\CancelOrderRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\CreateOrderRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\DTO\CreateOrderDTO;
@@ -37,8 +42,6 @@ use Dots\Glovo\Laas\Client\Responses\ValidateOrderResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\WebhookResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\WebhooksListResponseDTO;
 use RuntimeException;
-use Saloon\Exceptions\Request\FatalRequestException;
-use Saloon\Exceptions\Request\RequestException;
 use Saloon\Http\Connector;
 use Saloon\Http\Response;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
@@ -215,6 +218,36 @@ class GlovoConnector extends Connector
         return $this->send(new AuthenticateRequest(
             $this->authDto,
         ))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function uploadMenu(UploadMenuDTO $dto): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new UploadMenuRequest($dto))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function verifyMenuUpload(UploadMenuDTO $dto): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new VerifyMenuUploadRequest($dto))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function validateMenu(MenuDTO $dto): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new ValidateMenuRequest($dto))->dto();
     }
 
     public function resolveBaseUrl(): string
