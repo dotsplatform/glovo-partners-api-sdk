@@ -9,6 +9,7 @@ namespace Dots\Glovo\Laas\Client;
 
 use Dots\Glovo\Laas\Client\DTO\GlovoAuthDTO;
 use Dots\Glovo\Laas\Client\Exceptions\GlovoException;
+use Dots\Glovo\Laas\Client\Requests\Addresses\GetAddressesRequest;
 use Dots\Glovo\Laas\Client\Requests\AuthenticateRequest;
 use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\MenuDTO;
 use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\UploadMenuDTO;
@@ -33,12 +34,16 @@ use Dots\Glovo\Laas\Client\Requests\Webhooks\GetWebhooksListRequest;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\RegisterWebhookRequest;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\Simulate\SimulateWebhookRequest;
 use Dots\Glovo\Laas\Client\Responses\ErrorResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\GetAddressesResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\GlovoOAuthResponse;
 use Dots\Glovo\Laas\Client\Responses\OrderCourierContactResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderCourierPositionResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderStatusHistoryResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\UploadMenuResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\ValidateMenuResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\ValidateOrderResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\VerifyMenuUploadResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\WebhookResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\WebhooksListResponseDTO;
 use RuntimeException;
@@ -223,31 +228,41 @@ class GlovoConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function uploadMenu(UploadMenuDTO $dto): void
+    public function getAddresses(): GetAddressesResponseDTO
     {
         $this->authenticateRequests();
 
-        $this->send(new UploadMenuRequest($dto))->dto();
+        return $this->send(new GetAddressesRequest())->dto();
     }
 
     /**
      * @throws GlovoException
      */
-    public function verifyMenuUpload(UploadMenuDTO $dto): void
+    public function uploadMenu(UploadMenuDTO $dto): UploadMenuResponseDTO
     {
         $this->authenticateRequests();
 
-        $this->send(new VerifyMenuUploadRequest($dto))->dto();
+        return $this->send(new UploadMenuRequest($dto))->dto();
     }
 
     /**
      * @throws GlovoException
      */
-    public function validateMenu(MenuDTO $dto): void
+    public function verifyMenuUpload(UploadMenuDTO $dto): VerifyMenuUploadResponseDTO
     {
         $this->authenticateRequests();
 
-        $this->send(new ValidateMenuRequest($dto))->dto();
+        return $this->send(new VerifyMenuUploadRequest($dto))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function validateMenu(MenuDTO $dto): ValidateMenuResponseDTO
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new ValidateMenuRequest($dto))->dto();
     }
 
     public function resolveBaseUrl(): string

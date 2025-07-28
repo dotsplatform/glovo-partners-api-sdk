@@ -9,6 +9,8 @@ namespace Dots\Glovo\Laas\Client\Requests\Catalog;
 
 use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\UploadMenuDTO;
 use Dots\Glovo\Laas\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Laas\Client\Responses\UploadMenuResponseDTO;
+use Saloon\Http\Response;
 
 class UploadMenuRequest extends PostGlovoRequest
 {
@@ -27,5 +29,10 @@ class UploadMenuRequest extends PostGlovoRequest
     public function resolveEndpoint(): string
     {
         return self::ENDPOINT;
+    }
+
+    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
+    {
+        return UploadMenuResponseDTO::fromResponse($response);
     }
 }
