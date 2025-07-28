@@ -9,6 +9,7 @@ namespace Dots\Glovo\Laas;
 
 use Dots\Glovo\Laas\Client\DTO\GlovoAuthDTO;
 use Dots\Glovo\Laas\Client\GlovoConnector;
+use Dots\Glovo\Laas\Commands\GetAddressesCommand;
 use Dots\Glovo\Laas\Commands\OrderCancelGlovoCommand;
 use Dots\Glovo\Laas\Commands\OrderCourierContactGlovoCommand;
 use Dots\Glovo\Laas\Commands\OrderCourierPositionGlovoCommand;
@@ -69,6 +70,7 @@ class GlovoLaasServiceProvider extends ServiceProvider
             WebhooksRegisterGlovoCommand::class,
             WebhooksSimulateGlovoCommand::class,
             OrderStatusHistoryGlovoCommand::class,
+            GetAddressesCommand::class,
         ]);
     }
 }
