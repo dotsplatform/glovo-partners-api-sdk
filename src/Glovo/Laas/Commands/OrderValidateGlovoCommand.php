@@ -15,7 +15,7 @@ class OrderValidateGlovoCommand extends BaseGlovoCommand
 
     public function handle(): void
     {
-        $connector = $this->getClovoConnector();
+        $connector = $this->getGlovoConnector();
         $dto = $connector->validateOrder($this->getValidateOrder());
         dd($dto);
     }

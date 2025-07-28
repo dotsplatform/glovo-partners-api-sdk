@@ -15,7 +15,7 @@ class OrderStatusHistoryGlovoCommand extends BaseGlovoCommand
 
     public function handle(): void
     {
-        $connector = $this->getClovoConnector();
+        $connector = $this->getGlovoConnector();
         $trackingNumber = $this->assertStringValue($this->argument('trackingNumber'));
         try {
             $dto = $connector->getOrderStatusHistory($trackingNumber);

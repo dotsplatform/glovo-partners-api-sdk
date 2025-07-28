@@ -15,7 +15,7 @@ class OrderCreateGlovoCommand extends BaseGlovoCommand
 
     public function handle(): void
     {
-        $connector = $this->getClovoConnector();
+        $connector = $this->getGlovoConnector();
         $order = $connector->createOrder($this->getOrder());
         dd($order);
     }

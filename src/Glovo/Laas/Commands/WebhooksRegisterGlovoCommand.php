@@ -18,7 +18,7 @@ class WebhooksRegisterGlovoCommand extends BaseGlovoCommand
 
     public function handle(): void
     {
-        $connector = $this->getClovoConnector();
+        $connector = $this->getGlovoConnector();
         try {
             $dto = $connector->registerWebhook($this->getRegisterWebhookDTO());
             $this->info('Webhook registered. ID: '.$dto->getWebhook()->getWebhookId());

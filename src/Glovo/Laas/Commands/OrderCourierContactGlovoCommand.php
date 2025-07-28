@@ -15,7 +15,7 @@ class OrderCourierContactGlovoCommand extends BaseGlovoCommand
 
     public function handle(): void
     {
-        $connector = $this->getClovoConnector();
+        $connector = $this->getGlovoConnector();
         try {
             $trackingNumber = $this->assertStringValue($this->argument('trackingNumber'));
             $dto = $connector->getOrderCourierContact($trackingNumber);

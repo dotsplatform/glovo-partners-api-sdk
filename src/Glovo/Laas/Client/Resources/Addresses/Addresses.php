@@ -9,6 +9,9 @@ namespace Dots\Glovo\Laas\Client\Resources\Addresses;
 
 use Illuminate\Support\Collection;
 
+/**
+ * @extends Collection<int, Address>
+ */
 class Addresses extends Collection
 {
     public static function fromArray(array $data): self

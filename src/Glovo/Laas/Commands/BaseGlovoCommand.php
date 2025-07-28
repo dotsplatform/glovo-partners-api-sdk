@@ -14,7 +14,7 @@ use InvalidArgumentException;
 
 abstract class BaseGlovoCommand extends Command
 {
-    protected function getClovoConnector(): GlovoConnector
+    protected function getGlovoConnector(): GlovoConnector
     {
         return app(GlovoConnector::class);
     }

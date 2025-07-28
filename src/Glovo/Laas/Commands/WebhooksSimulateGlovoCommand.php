@@ -16,7 +16,7 @@ class WebhooksSimulateGlovoCommand extends BaseGlovoCommand
 
     public function handle(): void
     {
-        $connector = $this->getClovoConnector();
+        $connector = $this->getGlovoConnector();
         try {
             $webhookId = $this->assertIntValue($this->argument('webhookId'));
             $connector->simulateWebhook($webhookId);

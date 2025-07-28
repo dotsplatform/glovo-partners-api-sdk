@@ -13,7 +13,7 @@ class WebhooksListGlovoCommand extends BaseGlovoCommand
 
     public function handle(): void
     {
-        $connector = $this->getClovoConnector();
+        $connector = $this->getGlovoConnector();
         $dto = $connector->getWebhooks();
         dd($dto);
     }

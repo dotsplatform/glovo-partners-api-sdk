@@ -13,7 +13,7 @@ class OrderSimulateSuccessfulDeliveryGlovoCommand extends BaseGlovoCommand
 
     public function handle(): void
     {
-        $connector = $this->getClovoConnector();
+        $connector = $this->getGlovoConnector();
         $trackingNumber = $this->assertStringValue($this->argument('trackingNumber'));
         $connector->simulateSuccessfulDelivery($trackingNumber);
     }
