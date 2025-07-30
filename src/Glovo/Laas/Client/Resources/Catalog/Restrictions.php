@@ -11,17 +11,17 @@ use Dots\Data\DTO;
 
 class Restrictions extends DTO
 {
-    protected bool $isAlcoholic;
+    protected bool $is_alcoholic;
 
-    protected bool $isTobacco;
+    protected bool $is_tobacco;
 
     public function isAlcoholic(): bool
     {
-        return $this->isAlcoholic;
+        return $this->is_alcoholic;
     }
 
     public function isTobacco(): bool
     {
-        return $this->isTobacco;
+        return $this->is_tobacco;
     }
 }
