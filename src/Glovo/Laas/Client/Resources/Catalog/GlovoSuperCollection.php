@@ -15,7 +15,7 @@ class GlovoSuperCollection extends DTO
 
     protected int $position;
 
-    protected string $imageUrl;
+    protected string $image_url;
 
     protected GlovoCollections $collections;
 
@@ -31,7 +31,7 @@ class GlovoSuperCollection extends DTO
 
     public function getImageUrl(): string
     {
-        return $this->imageUrl;
+        return $this->image_url;
     }
 
     public function getCollections(): GlovoCollections

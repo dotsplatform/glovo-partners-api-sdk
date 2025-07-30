@@ -13,9 +13,9 @@ class Package extends DTO
 {
     protected string $id;
 
-    protected string $referenceName;
+    protected string $reference_name;
 
-    protected int $typeId;
+    protected int $type_id;
 
     protected float $price;
 
@@ -26,12 +26,12 @@ class Package extends DTO
 
     public function getReferenceName(): string
     {
-        return $this->referenceName;
+        return $this->reference_name;
     }
 
     public function getTypeId(): int
     {
-        return $this->typeId;
+        return $this->type_id;
     }
 
     public function getPrice(): float

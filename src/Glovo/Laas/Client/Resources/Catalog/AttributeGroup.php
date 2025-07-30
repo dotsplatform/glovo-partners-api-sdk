@@ -21,7 +21,7 @@ class AttributeGroup extends DTO
 
     protected bool $collapse;
 
-    protected bool $multipleSelection;
+    protected bool $multiple_selection;
 
     protected array $attributes;
 
@@ -52,7 +52,7 @@ class AttributeGroup extends DTO
 
     public function isMultipleSelection(): bool
     {
-        return $this->multipleSelection;
+        return $this->multiple_selection;
     }
 
     public function getAttributes(): array

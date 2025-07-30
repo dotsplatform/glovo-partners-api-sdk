@@ -13,7 +13,7 @@ class Menu extends DTO
 {
     protected Attributes $attributes;
 
-    protected AttributeGroups $attributeGroups;
+    protected AttributeGroups $attribute_groups;
 
     protected Products $products;
 
@@ -30,7 +30,7 @@ class Menu extends DTO
 
     public function getAttributeGroups(): AttributeGroups
     {
-        return $this->attributeGroups;
+        return $this->attribute_groups;
     }
 
     public function getProducts(): Products

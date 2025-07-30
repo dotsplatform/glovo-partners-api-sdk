@@ -17,21 +17,81 @@ class Product extends DTO
 
     protected float $price;
 
-    protected string $imageUrl;
+    protected string $image_url;
 
-    protected array $extraImageUrls;
+    protected array $extra_image_urls;
 
     protected ?Restrictions $restrictions;
 
     protected string $description;
 
-    protected array $attributesGroups;
+    protected array $attributes_groups;
 
     protected bool $available;
 
-    protected array $crossSellingOptions;
+    protected array $cross_selling_options;
 
-    protected array $dietaryLabels;
+    protected array $dietary_labels;
 
     protected string $packaging;
+
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    public function getImageUrl(): string
+    {
+        return $this->image_url;
+    }
+
+    public function getExtraImageUrls(): array
+    {
+        return $this->extra_image_urls;
+    }
+
+    public function getRestrictions(): ?Restrictions
+    {
+        return $this->restrictions;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function getAttributesGroups(): array
+    {
+        return $this->attributes_groups;
+    }
+
+    public function isAvailable(): bool
+    {
+        return $this->available;
+    }
+
+    public function getCrossSellingOptions(): array
+    {
+        return $this->cross_selling_options;
+    }
+
+    public function getDietaryLabels(): array
+    {
+        return $this->dietary_labels;
+    }
+
+    public function getPackaging(): string
+    {
+        return $this->packaging;
+    }
 }

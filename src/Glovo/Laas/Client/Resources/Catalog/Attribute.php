@@ -17,7 +17,7 @@ class Attribute extends DTO
 
     protected float $priceImpact;
 
-    protected bool $selectedByDefault;
+    protected bool $selected_by_default;
 
     protected bool $available;
 
@@ -38,7 +38,7 @@ class Attribute extends DTO
 
     public function isSelectedByDefault(): bool
     {
-        return $this->selectedByDefault;
+        return $this->selected_by_default;
     }
 
     public function isAvailable(): bool
