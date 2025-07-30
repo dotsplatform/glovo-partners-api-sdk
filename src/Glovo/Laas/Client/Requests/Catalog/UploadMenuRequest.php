@@ -17,6 +17,7 @@ class UploadMenuRequest extends PostGlovoRequest
     private const ENDPOINT = '/webhook/stores/%s/menu';
 
     public function __construct(
+        protected readonly string $storeId,
         protected readonly UploadMenuDTO $dto,
     ) {
     }
@@ -28,7 +29,7 @@ class UploadMenuRequest extends PostGlovoRequest
 
     public function resolveEndpoint(): string
     {
-        return self::ENDPOINT;
+        return sprintf(self::ENDPOINT, $this->storeId);
     }
 
     public function createDtoFromResponse(Response $response): UploadMenuResponseDTO

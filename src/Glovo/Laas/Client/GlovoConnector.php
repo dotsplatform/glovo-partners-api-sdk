@@ -238,21 +238,21 @@ class GlovoConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function uploadMenu(UploadMenuDTO $dto): UploadMenuResponseDTO
+    public function uploadMenu(string $storeId, UploadMenuDTO $dto): UploadMenuResponseDTO
     {
         $this->authenticateRequests();
 
-        return $this->send(new UploadMenuRequest($dto))->dto();
+        return $this->send(new UploadMenuRequest($storeId, $dto))->dto();
     }
 
     /**
      * @throws GlovoException
      */
-    public function verifyMenuUpload(UploadMenuDTO $dto): VerifyMenuUploadResponseDTO
+    public function verifyMenuUpload(string $storeId, string $transactionId): VerifyMenuUploadResponseDTO
     {
         $this->authenticateRequests();
 
-        return $this->send(new VerifyMenuUploadRequest($dto))->dto();
+        return $this->send(new VerifyMenuUploadRequest($storeId, $transactionId))->dto();
     }
 
     /**
