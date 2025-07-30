@@ -11,7 +11,6 @@ use Dots\Glovo\Laas\Client\DTO\GlovoAuthDTO;
 use Dots\Glovo\Laas\Client\Exceptions\GlovoException;
 use Dots\Glovo\Laas\Client\Requests\Addresses\GetAddressesRequest;
 use Dots\Glovo\Laas\Client\Requests\AuthenticateRequest;
-use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\MenuDTO;
 use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\UploadMenuDTO;
 use Dots\Glovo\Laas\Client\Requests\Catalog\UploadMenuRequest;
 use Dots\Glovo\Laas\Client\Requests\Catalog\ValidateMenuRequest;
@@ -33,6 +32,7 @@ use Dots\Glovo\Laas\Client\Requests\Webhooks\DTO\RegisterWebhookDTO;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\GetWebhooksListRequest;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\RegisterWebhookRequest;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\Simulate\SimulateWebhookRequest;
+use Dots\Glovo\Laas\Client\Resources\Catalog\Menu;
 use Dots\Glovo\Laas\Client\Responses\ErrorResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\GetAddressesResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\GlovoOAuthResponse;
@@ -258,7 +258,7 @@ class GlovoConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function validateMenu(MenuDTO $dto): ValidateMenuResponseDTO
+    public function validateMenu(Menu $dto): ValidateMenuResponseDTO
     {
         $this->authenticateRequests();
 

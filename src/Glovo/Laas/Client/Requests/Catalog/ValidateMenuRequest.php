@@ -7,8 +7,8 @@
 
 namespace Dots\Glovo\Laas\Client\Requests\Catalog;
 
-use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\MenuDTO;
 use Dots\Glovo\Laas\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Laas\Client\Resources\Catalog\Menu;
 use Dots\Glovo\Laas\Client\Responses\ValidateMenuResponseDTO;
 use Saloon\Http\Response;
 
@@ -17,7 +17,7 @@ class ValidateMenuRequest extends PostGlovoRequest
     private const ENDPOINT = '/paris/menu/validate';
 
     public function __construct(
-        protected readonly MenuDTO $dto,
+        protected readonly Menu $dto,
     ) {
     }
 
