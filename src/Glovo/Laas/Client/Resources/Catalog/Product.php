@@ -33,7 +33,7 @@ class Product extends DTO
 
     protected array $dietary_labels;
 
-    protected string $packaging;
+    protected ?string $packaging;
 
     public function getId(): string
     {
@@ -90,7 +90,7 @@ class Product extends DTO
         return $this->dietary_labels;
     }
 
-    public function getPackaging(): string
+    public function getPackaging(): ?string
     {
         return $this->packaging;
     }
