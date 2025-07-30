@@ -15,7 +15,7 @@ class Attribute extends DTO
 
     protected string $name;
 
-    protected float $priceImpact;
+    protected float $price_impact;
 
     protected bool $selected_by_default;
 
@@ -33,7 +33,7 @@ class Attribute extends DTO
 
     public function getPriceImpact(): float
     {
-        return $this->priceImpact;
+        return $this->price_impact;
     }
 
     public function isSelectedByDefault(): bool
