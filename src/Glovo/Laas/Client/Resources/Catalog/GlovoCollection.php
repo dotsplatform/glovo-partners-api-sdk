@@ -19,6 +19,13 @@ class GlovoCollection extends DTO
 
     protected Sections $sections;
 
+    public static function fromArray(array $data): static
+    {
+        $data['sections'] = Sections::fromArray($data['sections'] ?? []);
+
+        return parent::fromArray($data);
+    }
+
     public function getName(): string
     {
         return $this->name;
