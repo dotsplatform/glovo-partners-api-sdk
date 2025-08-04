@@ -9,7 +9,7 @@ namespace Dots\Glovo\Laas\Client\Requests\Catalog;
 
 use Dots\Glovo\Laas\Client\Requests\PostGlovoRequest;
 use Dots\Glovo\Laas\Client\Resources\Catalog\Menu;
-use Dots\Glovo\Laas\Client\Responses\ValidateMenuResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Catalog\ValidateMenuResponseDTO;
 use Saloon\Http\Response;
 
 class ValidateMenuRequest extends PostGlovoRequest

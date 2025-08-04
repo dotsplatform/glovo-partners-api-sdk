@@ -5,16 +5,16 @@
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Laas\Client\Requests\Catalog;
+namespace Dots\Glovo\Laas\Client\Requests\Items;
 
 use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\UploadMenuDTO;
 use Dots\Glovo\Laas\Client\Requests\PostGlovoRequest;
 use Dots\Glovo\Laas\Client\Responses\Catalog\UploadMenuResponseDTO;
 use Saloon\Http\Response;
 
-class UploadMenuRequest extends PostGlovoRequest
+class ModifyAttributesRequest extends PostGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/menu';
+    private const ENDPOINT = '/webhook/stores/%s/attributes/%s';
 
     public function __construct(
         protected readonly string $storeId,

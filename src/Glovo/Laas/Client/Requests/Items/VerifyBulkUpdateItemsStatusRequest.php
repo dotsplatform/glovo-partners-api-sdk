@@ -1,19 +1,19 @@
 <?php
 /**
- * Description of VerifyMenuUploadRequest.php
+ * Description of VerifyBulkUpdateItemsStatusRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Laas\Client\Requests\Catalog;
+namespace Dots\Glovo\Laas\Client\Requests\Items;
 
 use Dots\Glovo\Laas\Client\Requests\BaseGlovoRequest;
-use Dots\Glovo\Laas\Client\Responses\Catalog\VerifyMenuUploadResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Catalog\UploadMenuResponseDTO;
 use Saloon\Http\Response;
 
-class VerifyMenuUploadRequest extends BaseGlovoRequest
+class VerifyBulkUpdateItemsStatusRequest extends BaseGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/menu/%s';
+    private const ENDPOINT = '/webhook/stores/%s/menu/updates/{transactionId}';
 
     public function __construct(
         protected readonly string $storeId,
@@ -26,8 +26,8 @@ class VerifyMenuUploadRequest extends BaseGlovoRequest
         return sprintf(self::ENDPOINT, $this->storeId, $this->transactionId);
     }
 
-    public function createDtoFromResponse(Response $response): VerifyMenuUploadResponseDTO
+    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
     {
-        return VerifyMenuUploadResponseDTO::fromResponse($response);
+        return UploadMenuResponseDTO::fromResponse($response);
     }
 }

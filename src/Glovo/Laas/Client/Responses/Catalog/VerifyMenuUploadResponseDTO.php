@@ -5,9 +5,10 @@
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Laas\Client\Responses;
+namespace Dots\Glovo\Laas\Client\Responses\Catalog;
 
 use Dots\Glovo\Laas\Client\Resources\Consts\MenuStatus;
+use Dots\Glovo\Laas\Client\Responses\GlovoResponseDTO;
 
 class VerifyMenuUploadResponseDTO extends GlovoResponseDTO
 {

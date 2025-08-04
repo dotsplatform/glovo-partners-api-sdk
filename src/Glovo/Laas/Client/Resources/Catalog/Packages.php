@@ -10,7 +10,7 @@ namespace Dots\Glovo\Laas\Client\Resources\Catalog;
 use Illuminate\Support\Collection;
 
 /**
- * @extends GlovoCollection<int, Package>
+ * @extends Collection<int, Package>
  */
 class Packages extends Collection
 {

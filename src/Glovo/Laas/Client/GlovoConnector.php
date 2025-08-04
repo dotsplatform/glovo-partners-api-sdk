@@ -15,6 +15,7 @@ use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\UploadMenuDTO;
 use Dots\Glovo\Laas\Client\Requests\Catalog\UploadMenuRequest;
 use Dots\Glovo\Laas\Client\Requests\Catalog\ValidateMenuRequest;
 use Dots\Glovo\Laas\Client\Requests\Catalog\VerifyMenuUploadRequest;
+use Dots\Glovo\Laas\Client\Requests\Items\GetPackagingTypesRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\CancelOrderRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\CreateOrderRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\DTO\CreateOrderDTO;
@@ -33,17 +34,18 @@ use Dots\Glovo\Laas\Client\Requests\Webhooks\GetWebhooksListRequest;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\RegisterWebhookRequest;
 use Dots\Glovo\Laas\Client\Requests\Webhooks\Simulate\SimulateWebhookRequest;
 use Dots\Glovo\Laas\Client\Resources\Catalog\Menu;
+use Dots\Glovo\Laas\Client\Responses\Catalog\UploadMenuResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Catalog\ValidateMenuResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Catalog\VerifyMenuUploadResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\ErrorResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\GetAddressesResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\GlovoOAuthResponse;
+use Dots\Glovo\Laas\Client\Responses\Items\GetPackagingTypesResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderCourierContactResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderCourierPositionResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderStatusHistoryResponseDTO;
-use Dots\Glovo\Laas\Client\Responses\UploadMenuResponseDTO;
-use Dots\Glovo\Laas\Client\Responses\ValidateMenuResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\ValidateOrderResponseDTO;
-use Dots\Glovo\Laas\Client\Responses\VerifyMenuUploadResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\WebhookResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\WebhooksListResponseDTO;
 use RuntimeException;
@@ -263,6 +265,16 @@ class GlovoConnector extends Connector
         $this->authenticateRequests();
 
         return $this->send(new ValidateMenuRequest($dto))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function getPackagingTypes(string $storeId): GetPackagingTypesResponseDTO
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new GetPackagingTypesRequest($storeId))->dto();
     }
 
     public function resolveBaseUrl(): string
