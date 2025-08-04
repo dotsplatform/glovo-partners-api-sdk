@@ -8,21 +8,21 @@
 namespace Dots\Glovo\Laas\Client\Requests\Items\DTO;
 
 use Dots\Data\DTO;
-use Dots\Glovo\Laas\Client\Resources\Catalog\Attributes;
-use Dots\Glovo\Laas\Client\Resources\Catalog\Products;
+use Dots\Glovo\Laas\Client\Resources\Catalog\UpdatedAttributes;
+use Dots\Glovo\Laas\Client\Resources\Catalog\UpdatedProducts;
 
 class BulkUpdateItemsDTO extends DTO
 {
-    protected Products $products;
+    protected UpdatedProducts $products;
 
-    protected Attributes $attributes;
+    protected UpdatedAttributes $attributes;
 
-    public function getProducts(): Products
+    public function getProducts(): UpdatedProducts
     {
         return $this->products;
     }
 
-    public function getAttributes(): Attributes
+    public function getAttributes(): UpdatedAttributes
     {
         return $this->attributes;
     }
