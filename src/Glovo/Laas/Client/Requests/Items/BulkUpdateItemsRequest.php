@@ -1,15 +1,15 @@
 <?php
 /**
- * Description of UploadMenuRequest.php
+ * Description of BulkUpdateItemsRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
 namespace Dots\Glovo\Laas\Client\Requests\Items;
 
-use Dots\Glovo\Laas\Client\Requests\Items\DTO\ModifyProductsDTO;
+use Dots\Glovo\Laas\Client\Requests\Items\DTO\BulkUpdateItemsDTO;
 use Dots\Glovo\Laas\Client\Requests\PostGlovoRequest;
-use Dots\Glovo\Laas\Client\Responses\Catalog\UploadMenuResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Items\BulkUpdateItemsResponseDTO;
 use Saloon\Http\Response;
 
 class BulkUpdateItemsRequest extends PostGlovoRequest
@@ -18,7 +18,7 @@ class BulkUpdateItemsRequest extends PostGlovoRequest
 
     public function __construct(
         protected readonly string $storeId,
-        protected readonly ModifyProductsDTO $dto,
+        protected readonly BulkUpdateItemsDTO $dto,
     ) {
     }
 
@@ -32,8 +32,8 @@ class BulkUpdateItemsRequest extends PostGlovoRequest
         return sprintf(self::ENDPOINT, $this->storeId);
     }
 
-    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
+    public function createDtoFromResponse(Response $response): BulkUpdateItemsResponseDTO
     {
-        return UploadMenuResponseDTO::fromResponse($response);
+        return BulkUpdateItemsResponseDTO::fromResponse($response);
     }
 }

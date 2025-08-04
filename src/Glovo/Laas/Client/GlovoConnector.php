@@ -15,7 +15,14 @@ use Dots\Glovo\Laas\Client\Requests\Catalog\DTO\UploadMenuDTO;
 use Dots\Glovo\Laas\Client\Requests\Catalog\UploadMenuRequest;
 use Dots\Glovo\Laas\Client\Requests\Catalog\ValidateMenuRequest;
 use Dots\Glovo\Laas\Client\Requests\Catalog\VerifyMenuUploadRequest;
+use Dots\Glovo\Laas\Client\Requests\Items\BulkUpdateItemsRequest;
+use Dots\Glovo\Laas\Client\Requests\Items\DTO\BulkUpdateItemsDTO;
+use Dots\Glovo\Laas\Client\Requests\Items\DTO\ModifyAttributesDTO;
+use Dots\Glovo\Laas\Client\Requests\Items\DTO\ModifyProductsDTO;
 use Dots\Glovo\Laas\Client\Requests\Items\GetPackagingTypesRequest;
+use Dots\Glovo\Laas\Client\Requests\Items\ModifyAttributesRequest;
+use Dots\Glovo\Laas\Client\Requests\Items\ModifyProductsRequest;
+use Dots\Glovo\Laas\Client\Requests\Items\VerifyBulkUpdateItemsStatusRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\CancelOrderRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\CreateOrderRequest;
 use Dots\Glovo\Laas\Client\Requests\Orders\DTO\CreateOrderDTO;
@@ -40,7 +47,11 @@ use Dots\Glovo\Laas\Client\Responses\Catalog\VerifyMenuUploadResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\ErrorResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\GetAddressesResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\GlovoOAuthResponse;
+use Dots\Glovo\Laas\Client\Responses\Items\BulkUpdateItemsResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\Items\GetPackagingTypesResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Items\ModifyAttributesResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Items\ModifyProductsResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Items\VerifyBulkUpdateItemsStatusResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderCourierContactResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderCourierPositionResponseDTO;
 use Dots\Glovo\Laas\Client\Responses\OrderResponseDTO;
@@ -275,6 +286,46 @@ class GlovoConnector extends Connector
         $this->authenticateRequests();
 
         return $this->send(new GetPackagingTypesRequest($storeId))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function bulkUpdateItems(string $storeId, BulkUpdateItemsDTO $dto): BulkUpdateItemsResponseDTO
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new BulkUpdateItemsRequest($storeId, $dto))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function modifyProducts(string $storeId, string $productId, ModifyProductsDTO $dto): ModifyProductsResponseDTO
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new ModifyProductsRequest($storeId, $productId, $dto))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function modifyAttributes(string $storeId, string $attributeId, ModifyAttributesDTO $dto): ModifyAttributesResponseDTO
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new ModifyAttributesRequest($storeId, $attributeId, $dto))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function verifyBulkUpdateItemsStatus(string $storeId, string $transactionId): VerifyBulkUpdateItemsStatusResponseDTO
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new VerifyBulkUpdateItemsStatusRequest($storeId, $transactionId))->dto();
     }
 
     public function resolveBaseUrl(): string

@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of UploadMenuDTO.php
+ * Description of ModifyAttributesDTO.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
@@ -11,10 +11,17 @@ use Dots\Data\DTO;
 
 class ModifyAttributesDTO extends DTO
 {
-    protected string $menuUrl;
+    protected float $price_impact;
 
-    public function getMenuUrl(): string
+    protected bool $available;
+
+    public function getPriceImpact(): float
     {
-        return $this->menuUrl;
+        return $this->price_impact;
+    }
+
+    public function isAvailable(): bool
+    {
+        return $this->available;
     }
 }

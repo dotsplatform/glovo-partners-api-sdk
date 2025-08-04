@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of VerifyBulkUpdateItemsStatusRequest.php
+ * Description of GetPackagingTypesRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */

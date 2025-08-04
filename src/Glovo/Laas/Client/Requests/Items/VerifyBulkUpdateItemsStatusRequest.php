@@ -8,12 +8,12 @@
 namespace Dots\Glovo\Laas\Client\Requests\Items;
 
 use Dots\Glovo\Laas\Client\Requests\BaseGlovoRequest;
-use Dots\Glovo\Laas\Client\Responses\Catalog\UploadMenuResponseDTO;
+use Dots\Glovo\Laas\Client\Responses\Items\VerifyBulkUpdateItemsStatusResponseDTO;
 use Saloon\Http\Response;
 
 class VerifyBulkUpdateItemsStatusRequest extends BaseGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/menu/updates/{transactionId}';
+    private const ENDPOINT = '/webhook/stores/%s/menu/updates/%s';
 
     public function __construct(
         protected readonly string $storeId,
@@ -26,8 +26,8 @@ class VerifyBulkUpdateItemsStatusRequest extends BaseGlovoRequest
         return sprintf(self::ENDPOINT, $this->storeId, $this->transactionId);
     }
 
-    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
+    public function createDtoFromResponse(Response $response): VerifyBulkUpdateItemsStatusResponseDTO
     {
-        return UploadMenuResponseDTO::fromResponse($response);
+        return VerifyBulkUpdateItemsStatusResponseDTO::fromResponse($response);
     }
 }
