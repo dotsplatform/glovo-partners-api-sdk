@@ -5,20 +5,20 @@
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Laas\Client\Resources\Catalog;
+namespace Dots\Glovo\Laas\Client\Resources\Order;
 
 use Illuminate\Support\Collection;
 
 /**
- * @extends Collection<int, Product>
+ * @extends Collection<int, OrderProduct>
  */
-class Products extends Collection
+class OrderProducts extends Collection
 {
     public static function fromArray(array $data): self
     {
         return new self(
             array_map(
-                fn (array $item) => Product::fromArray($item),
+                fn (array $item) => OrderProduct::fromArray($item),
                 $data
             )
         );

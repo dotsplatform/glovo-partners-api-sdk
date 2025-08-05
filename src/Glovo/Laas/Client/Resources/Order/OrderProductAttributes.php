@@ -1,24 +1,27 @@
 <?php
+
+use Dots\Glovo\Laas\Client\Resources\Order\OrderProductAttribute;
+
 /**
- * Description of OrderProducts.php
+ * Description of OrderProductAttribute.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Laas\Client\Resources\Catalog;
+namespace Dots\Glovo\Laas\Client\Resources\Order;
 
 use Illuminate\Support\Collection;
 
 /**
- * @extends Collection<int, Product>
+ * @extends Collection<int, OrderProductAttribute>
  */
-class Products extends Collection
+class OrderProductAttributes extends Collection
 {
     public static function fromArray(array $data): self
     {
         return new self(
             array_map(
-                fn (array $item) => Product::fromArray($item),
+                fn (array $item) => OrderProductAttribute::fromArray($item),
                 $data
             )
         );
