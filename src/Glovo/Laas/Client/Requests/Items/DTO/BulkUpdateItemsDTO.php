@@ -26,4 +26,5 @@ class BulkUpdateItemsDTO extends DTO
     {
         return $this->attributes;
     }
+    
 }
