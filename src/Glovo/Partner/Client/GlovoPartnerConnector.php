@@ -7,9 +7,11 @@
 
 namespace Dots\Glovo\Partner\Client;
 
+use Dots\Glovo\Partner\Client\Exceptions\GlovoException;
 use Dots\Glovo\Partner\Client\Responses\Catalog\UploadMenuResponseDTO;
 use Dots\Glovo\Partner\Client\Responses\Catalog\ValidateMenuResponseDTO;
 use Dots\Glovo\Partner\Client\Responses\Catalog\VerifyMenuUploadResponseDTO;
+use Dots\Glovo\Partner\Client\Responses\ErrorResponseDTO;
 use Dots\Glovo\Partner\Client\Responses\Items\BulkUpdateItemsResponseDTO;
 use Dots\Glovo\Partner\Client\Responses\Items\GetPackagingTypesResponseDTO;
 use Dots\Glovo\Partner\Client\Responses\Items\ModifyAttributesResponseDTO;
@@ -29,7 +31,6 @@ use Dots\Glovo\Partner\Client\Requests\Items\ModifyAttributesRequest;
 use Dots\Glovo\Partner\Client\Requests\Items\ModifyProductsRequest;
 use Dots\Glovo\Partner\Client\Requests\Items\VerifyBulkUpdateItemsStatusRequest;
 use Dots\Glovo\Partner\Client\Resources\Catalog\Menu;
-use RuntimeException;
 use Saloon\Http\Connector;
 use Saloon\Http\Response;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
@@ -43,7 +44,6 @@ class GlovoPartnerConnector extends Connector
 
     public function __construct(
         private readonly GlovoPartnerAuthDTO $authDto,
-        private readonly bool $stageEnv = true,
     ) {
     }
 
@@ -147,22 +147,10 @@ class GlovoPartnerConnector extends Connector
         return new GlovoException($errorResponse);
     }
 
-    private function assertIsStagingEnv(): void
-    {
-        if (! $this->isStageEnv()) {
-            throw new RuntimeException('This method is only available in staging environment');
-        }
-    }
-
     private function authenticateRequests(): void
     {
         $oauth = $this->getAuthDTO();
         $this->withTokenAuth($oauth->getToken());
-    }
-
-    public function isStageEnv(): bool
-    {
-        return $this->stageEnv;
     }
 
     public function getAuthDTO(): GlovoPartnerAuthDTO

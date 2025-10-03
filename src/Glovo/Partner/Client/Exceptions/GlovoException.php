@@ -1,13 +1,13 @@
 <?php
 /**
- * Description of CreateGlovoOrderException.php
+ * Description of GlovoException.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
- * @author    Oleksandr Polosmak <o.polosmak@dotsplatform.com>
+ * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
 namespace Dots\Glovo\Partner\Client\Exceptions;
 
-use Dots\Glovo\Laas\Client\Responses\ErrorResponseDTO;
+use Dots\Glovo\Partner\Client\Responses\ErrorResponseDTO;
 use Exception;
 use Throwable;
 
