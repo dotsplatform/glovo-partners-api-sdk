@@ -1,6 +1,6 @@
 providers:
   # - Workbench\App\Providers\WorkbenchServiceProvider
-  - Dots\Glovo\Laas\GlovoLaasServiceProvider
+  - Dots\Glovo\Partner\GlovoPartnerServiceProvider
 
 migrations:
   - workbench/database/migrations
