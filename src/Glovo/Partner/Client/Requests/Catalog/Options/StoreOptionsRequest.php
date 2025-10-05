@@ -1,25 +1,24 @@
 <?php
 /**
- * Description of ModifyAttributesRequest.php
+ * Description of StoreOptionsRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Partner\Client\Requests\Items;
+namespace Dots\Glovo\Partner\Client\Requests\Catalog\Options;
 
+use Dots\Glovo\Partner\Client\Requests\Catalog\DTO\UploadMenuDTO;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
 use Dots\Glovo\Partner\Client\Responses\Catalog\UploadMenuResponseDTO;
-use Dots\Glovo\Partner\Client\Requests\Items\DTO\ModifyAttributesDTO;
 use Saloon\Http\Response;
 
-class ModifyAttributesRequest extends PostGlovoRequest
+class StoreOptionsRequest extends PostGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/attributes/%s';
+    private const ENDPOINT = '/webhook/stores/%s/menu';
 
     public function __construct(
         protected readonly string $storeId,
-        protected readonly string $attributeId,
-        protected readonly ModifyAttributesDTO $dto,
+        protected readonly UploadMenuDTO $dto,
     ) {
     }
 
@@ -30,7 +29,7 @@ class ModifyAttributesRequest extends PostGlovoRequest
 
     public function resolveEndpoint(): string
     {
-        return sprintf(self::ENDPOINT, $this->storeId, $this->attributeId);
+        return sprintf(self::ENDPOINT, $this->storeId);
     }
 
     public function createDtoFromResponse(Response $response): UploadMenuResponseDTO

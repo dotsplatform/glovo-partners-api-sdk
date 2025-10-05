@@ -7,9 +7,7 @@
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Collections;
 
-use Dots\Glovo\Partner\Client\Requests\Catalog\DTO\UploadMenuDTO;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
-use Dots\Glovo\Partner\Client\Responses\Catalog\UploadMenuResponseDTO;
 use Saloon\Http\Response;
 
 class DeleteCollectionsRequest extends PostGlovoRequest

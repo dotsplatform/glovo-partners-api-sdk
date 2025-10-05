@@ -5,16 +5,16 @@
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Partner\Client\Requests\Items;
+namespace Dots\Glovo\Partner\Client\Requests\Catalog\Products;
 
+use Dots\Glovo\Partner\Client\Requests\Items\DTO\BulkUpdateItemsDTO;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
 use Dots\Glovo\Partner\Client\Responses\Items\BulkUpdateItemsResponseDTO;
-use Dots\Glovo\Partner\Client\Requests\Items\DTO\BulkUpdateItemsDTO;
 use Saloon\Http\Response;
 
-class BulkUpdateItemsRequest extends PostGlovoRequest
+class BulkUpdateProductsRequest extends PostGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/menu/updates';
+    private const ENDPOINT = '/products/%s/bulk';
 
     public function __construct(
         protected readonly string $storeId,

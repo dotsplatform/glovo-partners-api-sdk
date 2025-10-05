@@ -1,22 +1,29 @@
 <?php
 /**
- * Description of GetSuperCollectionsRequest.php
+ * Description of DeleteOptionsRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections;
+namespace Dots\Glovo\Partner\Client\Requests\Catalog\Options;
 
-use Dots\Glovo\Partner\Client\Requests\BaseGlovoRequest;
+use Dots\Glovo\Partner\Client\DTO\Catalog\OptionDTOs;
+use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
 use Saloon\Http\Response;
 
-class GetSuperCollectionsRequest extends BaseGlovoRequest
+class DeleteOptionsRequest extends PostGlovoRequest
 {
-    private const ENDPOINT = '/menu-suppercollection/%s';
+    private const ENDPOINT = '/webhook/stores/%s/menu';
 
     public function __construct(
         protected readonly string $storeId,
+        protected readonly OptionDTOs $dto,
     ) {
+    }
+
+    protected function defaultBody(): array
+    {
+        return $this->dto->toArray();
     }
 
     public function resolveEndpoint(): string

@@ -1,24 +1,23 @@
 <?php
 /**
- * Description of UploadMenuRequest.php
+ * Description of StoreSuperCollectionsRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections;
 
-use Dots\Glovo\Partner\Client\Requests\Catalog\DTO\UploadMenuDTO;
+use Dots\Glovo\Partner\Client\DTO\Catalog\SuperCollectionDTOs;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
-use Dots\Glovo\Partner\Client\Responses\Catalog\UploadMenuResponseDTO;
 use Saloon\Http\Response;
 
 class StoreSuperCollectionsRequest extends PostGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/menu';
+    private const ENDPOINT = '/menu-suppercollection/%s';
 
     public function __construct(
         protected readonly string $storeId,
-        protected readonly UploadMenuDTO $dto,
+        protected readonly SuperCollectionDTOs $dto,
     ) {
     }
 

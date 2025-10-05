@@ -1,18 +1,18 @@
 <?php
 /**
- * Description of UploadMenuRequest.php
+ * Description of GetOptionsRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections;
+namespace Dots\Glovo\Partner\Client\Requests\Catalog\Options;
 
 use Dots\Glovo\Partner\Client\Requests\Catalog\DTO\UploadMenuDTO;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
 use Dots\Glovo\Partner\Client\Responses\Catalog\UploadMenuResponseDTO;
 use Saloon\Http\Response;
 
-class DeleteSuperCollectionsRequest extends PostGlovoRequest
+class GetOptionsRequest extends PostGlovoRequest
 {
     private const ENDPOINT = '/webhook/stores/%s/menu';
 
