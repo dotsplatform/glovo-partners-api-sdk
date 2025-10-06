@@ -7,30 +7,31 @@
 
 namespace Dots\Glovo\Partner\Client;
 
+use Dots\Glovo\Partner\Client\DTO\Catalog\BulkUpdateProductDTOs;
+use Dots\Glovo\Partner\Client\DTO\Catalog\CollectionDTOs;
+use Dots\Glovo\Partner\Client\DTO\Catalog\OptionDTO;
+use Dots\Glovo\Partner\Client\DTO\Catalog\OptionDTOs;
+use Dots\Glovo\Partner\Client\DTO\Catalog\ProductDTOs;
+use Dots\Glovo\Partner\Client\DTO\Catalog\SuperCollectionDTOs;
 use Dots\Glovo\Partner\Client\Exceptions\GlovoException;
-use Dots\Glovo\Partner\Client\Responses\Catalog\UploadMenuResponseDTO;
-use Dots\Glovo\Partner\Client\Responses\Catalog\ValidateMenuResponseDTO;
-use Dots\Glovo\Partner\Client\Responses\Catalog\VerifyMenuUploadResponseDTO;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Collections\DeleteCollectionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Collections\GetCollectionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Collections\StoreCollectionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Options\DeleteGroupOptionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Options\DeleteOptionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Options\GetOptionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Options\StoreOptionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Products\BulkUpdateProductsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Products\DeleteGroupProductsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Products\DeleteProductsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Products\GetProductsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\Products\StoreProductsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\DeleteSuperCollectionRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\GetSuperCollectionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\StoreSuperCollectionsRequest;
+use Dots\Glovo\Partner\Client\Requests\StoreAddresses\ClearAllDataRequest;
 use Dots\Glovo\Partner\Client\Responses\ErrorResponseDTO;
-use Dots\Glovo\Partner\Client\Responses\Items\BulkUpdateItemsResponseDTO;
-use Dots\Glovo\Partner\Client\Responses\Items\GetPackagingTypesResponseDTO;
-use Dots\Glovo\Partner\Client\Responses\Items\ModifyAttributesResponseDTO;
-use Dots\Glovo\Partner\Client\Responses\Items\ModifyProductsResponseDTO;
-use Dots\Glovo\Partner\Client\Responses\Items\VerifyBulkUpdateItemsStatusResponseDTO;
 use Dots\Glovo\Partner\Client\DTO\GlovoPartnerAuthDTO;
-use Dots\Glovo\Partner\Client\Requests\Catalog\DTO\UploadMenuDTO;
-use Dots\Glovo\Partner\Client\Requests\Catalog\UploadMenuRequest;
-use Dots\Glovo\Partner\Client\Requests\Catalog\ValidateMenuRequest;
-use Dots\Glovo\Partner\Client\Requests\Catalog\VerifyMenuUploadRequest;
-use Dots\Glovo\Partner\Client\Requests\Items\BulkUpdateItemsRequest;
-use Dots\Glovo\Partner\Client\Requests\Items\DTO\BulkUpdateItemsDTO;
-use Dots\Glovo\Partner\Client\Requests\Items\DTO\ModifyAttributesDTO;
-use Dots\Glovo\Partner\Client\Requests\Items\DTO\ModifyProductsDTO;
-use Dots\Glovo\Partner\Client\Requests\Items\GetPackagingTypesRequest;
-use Dots\Glovo\Partner\Client\Requests\Items\ModifyAttributesRequest;
-use Dots\Glovo\Partner\Client\Requests\Items\ModifyProductsRequest;
-use Dots\Glovo\Partner\Client\Requests\Items\VerifyBulkUpdateItemsStatusRequest;
-use Dots\Glovo\Partner\Client\Resources\Catalog\Menu;
 use Saloon\Http\Connector;
 use Saloon\Http\Response;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
@@ -55,86 +56,6 @@ class GlovoPartnerConnector extends Connector
         ];
     }
 
-    /**
-     * @throws GlovoException
-     */
-    public function uploadMenu(string $storeId, UploadMenuDTO $dto): UploadMenuResponseDTO
-    {
-        $this->authenticateRequests();
-
-        return $this->send(new UploadMenuRequest($storeId, $dto))->dto();
-    }
-
-    /**
-     * @throws GlovoException
-     */
-    public function verifyMenuUpload(string $storeId, string $transactionId): VerifyMenuUploadResponseDTO
-    {
-        $this->authenticateRequests();
-
-        return $this->send(new VerifyMenuUploadRequest($storeId, $transactionId))->dto();
-    }
-
-    /**
-     * @throws GlovoException
-     */
-    public function validateMenu(Menu $dto): ValidateMenuResponseDTO
-    {
-        $this->authenticateRequests();
-
-        return $this->send(new ValidateMenuRequest($dto))->dto();
-    }
-
-    /**
-     * @throws GlovoException
-     */
-    public function getPackagingTypes(string $storeId): GetPackagingTypesResponseDTO
-    {
-        $this->authenticateRequests();
-
-        return $this->send(new GetPackagingTypesRequest($storeId))->dto();
-    }
-
-    /**
-     * @throws GlovoException
-     */
-    public function bulkUpdateItems(string $storeId, BulkUpdateItemsDTO $dto): BulkUpdateItemsResponseDTO
-    {
-        $this->authenticateRequests();
-
-        return $this->send(new BulkUpdateItemsRequest($storeId, $dto))->dto();
-    }
-
-    /**
-     * @throws GlovoException
-     */
-    public function modifyProducts(string $storeId, string $productId, ModifyProductsDTO $dto): ModifyProductsResponseDTO
-    {
-        $this->authenticateRequests();
-
-        return $this->send(new ModifyProductsRequest($storeId, $productId, $dto))->dto();
-    }
-
-    /**
-     * @throws GlovoException
-     */
-    public function modifyAttributes(string $storeId, string $attributeId, ModifyAttributesDTO $dto): ModifyAttributesResponseDTO
-    {
-        $this->authenticateRequests();
-
-        return $this->send(new ModifyAttributesRequest($storeId, $attributeId, $dto))->dto();
-    }
-
-    /**
-     * @throws GlovoException
-     */
-    public function verifyBulkUpdateItemsStatus(string $storeId, string $transactionId): VerifyBulkUpdateItemsStatusResponseDTO
-    {
-        $this->authenticateRequests();
-
-        return $this->send(new VerifyBulkUpdateItemsStatusRequest($storeId, $transactionId))->dto();
-    }
-
     public function resolveBaseUrl(): string
     {
         return self::BASE_PROD_URL;
@@ -145,6 +66,154 @@ class GlovoPartnerConnector extends Connector
         $errorResponse = ErrorResponseDTO::fromResponse($response);
 
         return new GlovoException($errorResponse);
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function deleteCollections(string $storeId, string $collectionId): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new DeleteCollectionsRequest($storeId, $collectionId));
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function storeCollections(string $storeId, CollectionDTOs $collections): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new StoreCollectionsRequest($storeId, $collections));
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function getCollections(string $storeId): CollectionDTOs
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new GetCollectionsRequest($storeId))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function deleteSuperCollections(string $storeId, string $superCollectionId): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new DeleteSuperCollectionRequest($storeId, $superCollectionId));
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function storeSuperCollections(string $storeId, SuperCollectionDTOs $superCollections): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new StoreSuperCollectionsRequest($storeId, $superCollections));
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function getSuperCollections(string $storeId): CollectionDTOs
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new GetSuperCollectionsRequest($storeId))->dto();
+    }
+
+    public function deleteGroupProducts(string $storeId, string $groupId): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new DeleteGroupProductsRequest($storeId, $groupId));
+    }
+
+    public function deleteProducts(string $storeId, string $groupId, string $productId): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new DeleteProductsRequest($storeId, $groupId, $productId));
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function storeProducts(string $storeId, ProductDTOs $products): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new StoreProductsRequest($storeId, $products));
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function getProducts(string $storeId): ProductDTOs
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new GetProductsRequest($storeId))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function bulkUpdateProducts(string $storeId, BulkUpdateProductDTOs $dto): ProductDTOs
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new BulkUpdateProductsRequest($storeId, $dto))->dto();
+    }
+
+    public function deleteGroupOptions(string $storeId, string $groupId): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new DeleteGroupOptionsRequest($storeId, $groupId));
+    }
+
+    public function deleteOptions(string $storeId, string $groupId, string $optionId): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new DeleteOptionsRequest($storeId, $groupId, $optionId));
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function storeOptions(string $storeId, OptionDTOs $options): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new StoreOptionsRequest($storeId, $options));
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function getOptions(string $storeId): OptionDTO
+    {
+        $this->authenticateRequests();
+
+        return $this->send(new GetOptionsRequest($storeId))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function clearAllData(string $storeId): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new ClearAllDataRequest($storeId));
     }
 
     private function authenticateRequests(): void

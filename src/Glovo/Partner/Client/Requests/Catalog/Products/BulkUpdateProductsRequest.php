@@ -7,10 +7,8 @@
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Products;
 
-use Dots\Glovo\Partner\Client\Requests\Items\DTO\BulkUpdateItemsDTO;
+use Dots\Glovo\Partner\Client\DTO\Catalog\BulkUpdateProductDTOs;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
-use Dots\Glovo\Partner\Client\Responses\Items\BulkUpdateItemsResponseDTO;
-use Saloon\Http\Response;
 
 class BulkUpdateProductsRequest extends PostGlovoRequest
 {
@@ -18,7 +16,7 @@ class BulkUpdateProductsRequest extends PostGlovoRequest
 
     public function __construct(
         protected readonly string $storeId,
-        protected readonly BulkUpdateItemsDTO $dto,
+        protected readonly BulkUpdateProductDTOs $dto,
     ) {
     }
 
@@ -30,10 +28,5 @@ class BulkUpdateProductsRequest extends PostGlovoRequest
     public function resolveEndpoint(): string
     {
         return sprintf(self::ENDPOINT, $this->storeId);
-    }
-
-    public function createDtoFromResponse(Response $response): BulkUpdateItemsResponseDTO
-    {
-        return BulkUpdateItemsResponseDTO::fromResponse($response);
     }
 }

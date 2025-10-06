@@ -1,22 +1,23 @@
 <?php
 /**
- * Description of GetSuperCollectionsRequest.php
+ * Description of DeleteGroupOptionsRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
-namespace Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections;
+namespace Dots\Glovo\Partner\Client\Requests\Catalog\Options;
 
-use Dots\Glovo\Partner\Client\Requests\BaseGlovoRequest;
+use Dots\Glovo\Partner\Client\Requests\DeleteGlovoRequest;
 use Dots\Glovo\Partner\Client\Responses\GlovoResponseDTO;
 use Saloon\Http\Response;
 
-class GetSuperCollectionsRequest extends BaseGlovoRequest
+class DeleteGroupOptionsRequest extends DeleteGlovoRequest
 {
-    private const ENDPOINT = '/menu-suppercollection/%s';
+    private const ENDPOINT = '/options/%s/%s';
 
     public function __construct(
         protected readonly string $storeId,
+        protected readonly string $groupId,
     ) {
     }
 

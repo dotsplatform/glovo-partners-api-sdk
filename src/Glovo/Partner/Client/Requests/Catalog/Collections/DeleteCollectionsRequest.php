@@ -7,22 +7,18 @@
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Collections;
 
-use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Partner\Client\Requests\DeleteGlovoRequest;
+use Dots\Glovo\Partner\Client\Responses\GlovoResponseDTO;
 use Saloon\Http\Response;
 
-class DeleteCollectionsRequest extends PostGlovoRequest
+class DeleteCollectionsRequest extends DeleteGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/menu';
+    private const ENDPOINT = '/menu-collections/%s/%s';
 
     public function __construct(
         protected readonly string $storeId,
-        protected readonly UploadMenuDTO $dto,
+        protected readonly string $collectionId,
     ) {
-    }
-
-    protected function defaultBody(): array
-    {
-        return $this->dto->toArray();
     }
 
     public function resolveEndpoint(): string
@@ -30,8 +26,8 @@ class DeleteCollectionsRequest extends PostGlovoRequest
         return sprintf(self::ENDPOINT, $this->storeId);
     }
 
-    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
+    public function createDtoFromResponse(Response $response): GlovoResponseDTO
     {
-        return UploadMenuResponseDTO::fromResponse($response);
+        return GlovoResponseDTO::fromResponse($response);
     }
 }
