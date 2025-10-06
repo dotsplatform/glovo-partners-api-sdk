@@ -1,30 +1,25 @@
 <?php
 /**
- * Description of UploadMenuRequest.php
+ * Description of DeleteProductsRequest.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
  * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
  */
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Products;
 
-use Dots\Glovo\Partner\Client\Requests\Catalog\DTO\UploadMenuDTO;
-use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
-use Dots\Glovo\Partner\Client\Responses\Catalog\UploadMenuResponseDTO;
+use Dots\Glovo\Partner\Client\Requests\DeleteGlovoRequest;
+use Dots\Glovo\Partner\Client\Responses\GlovoResponseDTO;
 use Saloon\Http\Response;
 
-class DeleteProductsRequest extends PostGlovoRequest
+class DeleteProductsRequest extends DeleteGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/menu';
+    private const ENDPOINT = '/products/%s/%s/%s';
 
     public function __construct(
         protected readonly string $storeId,
-        protected readonly UploadMenuDTO $dto,
+        protected readonly string $groupId,
+        protected readonly string $productId,
     ) {
-    }
-
-    protected function defaultBody(): array
-    {
-        return $this->dto->toArray();
     }
 
     public function resolveEndpoint(): string
@@ -32,8 +27,8 @@ class DeleteProductsRequest extends PostGlovoRequest
         return sprintf(self::ENDPOINT, $this->storeId);
     }
 
-    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
+    public function createDtoFromResponse(Response $response): GlovoResponseDTO
     {
-        return UploadMenuResponseDTO::fromResponse($response);
+        return GlovoResponseDTO::fromResponse($response);
     }
 }

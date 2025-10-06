@@ -7,18 +7,18 @@
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Options;
 
-use Dots\Glovo\Partner\Client\Requests\Catalog\DTO\UploadMenuDTO;
+use Dots\Glovo\Partner\Client\DTO\Catalog\OptionDTOs;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
-use Dots\Glovo\Partner\Client\Responses\Catalog\UploadMenuResponseDTO;
+use Dots\Glovo\Partner\Client\Responses\GlovoResponseDTO;
 use Saloon\Http\Response;
 
 class StoreOptionsRequest extends PostGlovoRequest
 {
-    private const ENDPOINT = '/webhook/stores/%s/menu';
+    private const ENDPOINT = '/options/%s';
 
     public function __construct(
         protected readonly string $storeId,
-        protected readonly UploadMenuDTO $dto,
+        protected readonly OptionDTOs $dto,
     ) {
     }
 
@@ -32,8 +32,8 @@ class StoreOptionsRequest extends PostGlovoRequest
         return sprintf(self::ENDPOINT, $this->storeId);
     }
 
-    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
+    public function createDtoFromResponse(Response $response): GlovoResponseDTO
     {
-        return UploadMenuResponseDTO::fromResponse($response);
+        return GlovoResponseDTO::fromResponse($response);
     }
 }

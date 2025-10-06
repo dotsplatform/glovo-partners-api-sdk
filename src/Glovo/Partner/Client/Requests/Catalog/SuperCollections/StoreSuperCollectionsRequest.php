@@ -9,6 +9,7 @@ namespace Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections;
 
 use Dots\Glovo\Partner\Client\DTO\Catalog\SuperCollectionDTOs;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Partner\Client\Responses\GlovoResponseDTO;
 use Saloon\Http\Response;
 
 class StoreSuperCollectionsRequest extends PostGlovoRequest
@@ -31,8 +32,8 @@ class StoreSuperCollectionsRequest extends PostGlovoRequest
         return sprintf(self::ENDPOINT, $this->storeId);
     }
 
-    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
+    public function createDtoFromResponse(Response $response): GlovoResponseDTO
     {
-        return UploadMenuResponseDTO::fromResponse($response);
+        return GlovoResponseDTO::fromResponse($response);
     }
 }
