@@ -7,7 +7,7 @@
 
 namespace Tests;
 
-use Dots\Glovo\Laas\GlovoLaasServiceProvider;
+use Dots\Glovo\Partner\GlovoPartnerServiceProvider;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase as LaravelTestCase;
 
@@ -16,7 +16,7 @@ abstract class TestCase extends LaravelTestCase
     protected function getPackageProviders($app): array
     {
         return [
-            GlovoLaasServiceProvider::class,
+            GlovoPartnerServiceProvider::class,
         ];
     }
 

@@ -1,0 +1,32 @@
+<?php
+/**
+ * Description of DeleteSuperCollectionRequest.php
+ * @copyright Copyright (c) DOTSPLATFORM, LLC
+ * @author    Bogdan Mamontov <bohdan.mamontov@dotsplatform.com>
+ */
+
+namespace Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections;
+
+use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
+use Saloon\Http\Response;
+
+class DeleteSuperCollectionRequest extends PostGlovoRequest
+{
+    private const ENDPOINT = '/menu-suppercollection/%s/%s';
+
+    public function __construct(
+        protected readonly string $storeId,
+        protected readonly string $supperCollectionId,
+    ) {
+    }
+
+    public function resolveEndpoint(): string
+    {
+        return sprintf(self::ENDPOINT, $this->storeId);
+    }
+
+    public function createDtoFromResponse(Response $response): UploadMenuResponseDTO
+    {
+        return UploadMenuResponseDTO::fromResponse($response);
+    }
+}
