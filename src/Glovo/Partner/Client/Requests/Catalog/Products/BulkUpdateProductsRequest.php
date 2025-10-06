@@ -7,8 +7,8 @@
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Products;
 
-use Dots\Glovo\Partner\Client\DTO\Catalog\BulkUpdateProductDTOs;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Partner\Client\Resources\Catalog\BulkUpdateProductDTOs;
 
 class BulkUpdateProductsRequest extends PostGlovoRequest
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dots\Glovo\Partner\Client\DTO\Catalog;
+namespace Dots\Glovo\Partner\Client\Resources\Catalog;
 
 use Illuminate\Support\Collection;
 
@@ -15,7 +15,7 @@ class SuperCollectionDTOs extends Collection
             fn (SuperCollectionDTO|array $item): SuperCollectionDTO => $item instanceof SuperCollectionDTO ? $item : SuperCollectionDTO::fromArray($item),
             $data
         );
+
         return self::make($data);
     }
 }
-

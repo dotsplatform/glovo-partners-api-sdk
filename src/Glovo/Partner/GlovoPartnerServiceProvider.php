@@ -34,7 +34,7 @@ class GlovoPartnerServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../../config/glovo-partner.php',
+            __DIR__.'/../../../config/glovo-partner.php',
             'glovo-partner',
         );
     }

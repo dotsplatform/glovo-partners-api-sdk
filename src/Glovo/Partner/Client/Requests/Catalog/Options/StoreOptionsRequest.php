@@ -7,8 +7,8 @@
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Options;
 
-use Dots\Glovo\Partner\Client\DTO\Catalog\OptionDTOs;
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Partner\Client\Resources\Catalog\OptionDTOs;
 use Dots\Glovo\Partner\Client\Responses\GlovoResponseDTO;
 use Saloon\Http\Response;
 

@@ -1,9 +1,8 @@
 <?php
 
-namespace Dots\Glovo\Partner\Client\DTO\Catalog;
+namespace Dots\Glovo\Partner\Client\Resources\Catalog;
 
 use Dots\Data\DTO;
-use Dots\Glovo\Partner\Client\Resources\Catalog\Restrictions;
 
 class ProductDTO extends DTO
 {
