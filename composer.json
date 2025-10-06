@@ -1,5 +1,5 @@
 {
-    "name": "dotsplatform/glovo-laas-api-sdk-laravel",
+    "name": "dotsplatform/glovo-partners-api-sdk",
     "description": "This a laravel package for Glovo Laas API - https://logistics-docs.glovoapp.com/laas-partners/index.html#section/Glovo-LaaS-API",
     "type": "library",
     "require": {
