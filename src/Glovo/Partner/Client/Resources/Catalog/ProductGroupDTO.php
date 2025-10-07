@@ -17,6 +17,20 @@ class ProductGroupDTO extends DTO
     /** @var ProductDTO[] */
     protected array $items = [];
 
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->getTitle(),
+            'active' => $this->isActive(),
+            'position' => $this->getPosition(),
+            'items' => array_map(
+                fn($product) => is_array($product) ? $product : $product->toArray(),
+                $this->getItems(),
+            ),
+        ];
+    }
+
     public function getId(): string
     {
         return $this->id;

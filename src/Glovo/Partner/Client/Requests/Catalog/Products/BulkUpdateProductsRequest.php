@@ -7,10 +7,10 @@
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Products;
 
-use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Partner\Client\Requests\PatchGlovoRequest;
 use Dots\Glovo\Partner\Client\Resources\Catalog\BulkUpdateProductDTOs;
 
-class BulkUpdateProductsRequest extends PostGlovoRequest
+class BulkUpdateProductsRequest extends PatchGlovoRequest
 {
     private const ENDPOINT = '/products/%s/bulk';
 
