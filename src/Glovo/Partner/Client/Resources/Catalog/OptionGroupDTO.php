@@ -21,6 +21,22 @@ class OptionGroupDTO extends DTO
     /** @var OptionDTO[] */
     protected array $items = [];
 
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->getTitle(),
+            'active' => $this->isActive(),
+            'min' => $this->getMin(),
+            'max' => $this->getMax(),
+            'moreThanOnce' => $this->isMoreThanOnce(),
+            'items' => array_map(
+                fn($option) => is_array($option) ? $option : $option->toArray(),
+                $this->getItems(),
+            ),
+        ];
+    }
+
     public function getId(): string
     {
         return $this->id;

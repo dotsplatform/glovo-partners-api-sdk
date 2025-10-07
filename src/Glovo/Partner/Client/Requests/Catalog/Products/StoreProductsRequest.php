@@ -7,12 +7,12 @@
 
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Products;
 
-use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
+use Dots\Glovo\Partner\Client\Requests\PatchGlovoRequest;
 use Dots\Glovo\Partner\Client\Resources\Catalog\ProductGroupDTOs;
 use Dots\Glovo\Partner\Client\Responses\GlovoResponseDTO;
 use Saloon\Http\Response;
 
-class StoreProductsRequest extends PostGlovoRequest
+class StoreProductsRequest extends PatchGlovoRequest
 {
     private const ENDPOINT = '/products/%s';
 
