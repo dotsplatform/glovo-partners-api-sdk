@@ -1,16 +1,21 @@
 <?php
 
-namespace Dots\Glovo\Partner\Client\DTO\Catalog;
+namespace Dots\Glovo\Partner\Client\Resources\Catalog;
 
 use Dots\Data\DTO;
 
 class OptionGroupDTO extends DTO
 {
     protected string $id;
+
     protected string $title;
+
     protected bool $active;
+
     protected float $min;
+
     protected float $max;
+
     protected bool $moreThanOnce;
 
     /** @var OptionDTO[] */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dots\Glovo\Partner\Client\DTO\Catalog;
+namespace Dots\Glovo\Partner\Client\Resources\Catalog;
 
 use Illuminate\Support\Collection;
 
@@ -15,7 +15,7 @@ class ProductDTOs extends Collection
             fn (ProductDTO|array $item): ProductDTO => $item instanceof ProductDTO ? $item : ProductDTO::fromArray($item),
             $data
         );
+
         return self::make($data);
     }
 }
-

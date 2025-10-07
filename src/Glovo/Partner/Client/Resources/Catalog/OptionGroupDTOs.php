@@ -1,6 +1,6 @@
 <?php
 
-namespace Dots\Glovo\Partner\Client\DTO\Catalog;
+namespace Dots\Glovo\Partner\Client\Resources\Catalog;
 
 use Illuminate\Support\Collection;
 
@@ -15,7 +15,7 @@ class OptionGroupDTOs extends Collection
             fn (OptionGroupDTO|array $item): OptionGroupDTO => $item instanceof OptionGroupDTO ? $item : OptionGroupDTO::fromArray($item),
             $data
         );
+
         return self::make($data);
     }
 }
-

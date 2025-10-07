@@ -1,10 +1,10 @@
 <?php
 
-namespace Dots\Glovo\Partner\Client\DTO\Catalog;
+namespace Dots\Glovo\Partner\Client\Resources\Catalog;
 
 use Dots\Data\DTO;
 
-class SuperCollectionDTO extends DTO
+class ProductGroupDTO extends DTO
 {
     protected string $id;
 
@@ -14,10 +14,8 @@ class SuperCollectionDTO extends DTO
 
     protected int $position;
 
-    protected string $image;
-
-    /** @var string[] */
-    protected array $menuCollections = [];
+    /** @var ProductDTO[] */
+    protected array $items = [];
 
     public function getId(): string
     {
@@ -39,16 +37,11 @@ class SuperCollectionDTO extends DTO
         return $this->position;
     }
 
-    public function getImage(): string
-    {
-        return $this->image;
-    }
-
     /**
-     * @return string[]
+     * @return ProductDTO[]
      */
-    public function getMenuCollections(): array
+    public function getItems(): array
     {
-        return $this->menuCollections;
+        return $this->items;
     }
 }

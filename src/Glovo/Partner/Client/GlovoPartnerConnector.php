@@ -7,12 +7,7 @@
 
 namespace Dots\Glovo\Partner\Client;
 
-use Dots\Glovo\Partner\Client\DTO\Catalog\BulkUpdateProductDTOs;
-use Dots\Glovo\Partner\Client\DTO\Catalog\CollectionDTOs;
-use Dots\Glovo\Partner\Client\DTO\Catalog\OptionDTO;
-use Dots\Glovo\Partner\Client\DTO\Catalog\OptionDTOs;
-use Dots\Glovo\Partner\Client\DTO\Catalog\ProductDTOs;
-use Dots\Glovo\Partner\Client\DTO\Catalog\SuperCollectionDTOs;
+use Dots\Glovo\Partner\Client\DTO\GlovoPartnerAuthDTO;
 use Dots\Glovo\Partner\Client\Exceptions\GlovoException;
 use Dots\Glovo\Partner\Client\Requests\Catalog\Collections\DeleteCollectionsRequest;
 use Dots\Glovo\Partner\Client\Requests\Catalog\Collections\GetCollectionsRequest;
@@ -30,8 +25,14 @@ use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\DeleteSuperColle
 use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\GetSuperCollectionsRequest;
 use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\StoreSuperCollectionsRequest;
 use Dots\Glovo\Partner\Client\Requests\StoreAddresses\ClearAllDataRequest;
+use Dots\Glovo\Partner\Client\Resources\Catalog\BulkUpdateProductDTOs;
+use Dots\Glovo\Partner\Client\Resources\Catalog\CollectionDTOs;
+use Dots\Glovo\Partner\Client\Resources\Catalog\OptionDTO;
+use Dots\Glovo\Partner\Client\Resources\Catalog\OptionDTOs;
+use Dots\Glovo\Partner\Client\Resources\Catalog\OptionGroupDTOs;
+use Dots\Glovo\Partner\Client\Resources\Catalog\ProductDTOs;
+use Dots\Glovo\Partner\Client\Resources\Catalog\SuperCollectionDTOs;
 use Dots\Glovo\Partner\Client\Responses\ErrorResponseDTO;
-use Dots\Glovo\Partner\Client\DTO\GlovoPartnerAuthDTO;
 use Saloon\Http\Connector;
 use Saloon\Http\Response;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
@@ -189,7 +190,7 @@ class GlovoPartnerConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function storeOptions(string $storeId, OptionDTOs $options): void
+    public function storeOptions(string $storeId, OptionGroupDTOs $options): void
     {
         $this->authenticateRequests();
 
@@ -199,7 +200,7 @@ class GlovoPartnerConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function getOptions(string $storeId): OptionDTO
+    public function getOptions(string $storeId): OptionGroupDTOs
     {
         $this->authenticateRequests();
 

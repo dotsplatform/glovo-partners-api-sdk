@@ -1,19 +1,23 @@
 <?php
 
-namespace Dots\Glovo\Partner\Client\DTO\Catalog;
+namespace Dots\Glovo\Partner\Client\Resources\Catalog;
 
 use Dots\Data\DTO;
 
-class ProductGroupDTO extends DTO
+class CollectionDTO extends DTO
 {
     protected string $id;
+
     protected string $title;
+
     protected bool $active;
 
     protected int $position;
 
-    /** @var ProductDTO[] */
-    protected array $items = [];
+    protected string $image;
+
+    /** @var string[] */
+    protected array $productGroups = [];
 
     public function getId(): string
     {
@@ -30,16 +34,18 @@ class ProductGroupDTO extends DTO
         return $this->active;
     }
 
-    public function getPosition(): float|int
+    public function getPosition(): int
     {
         return $this->position;
     }
 
-    /**
-     * @return ProductDTO[]
-     */
-    public function getItems(): array
+    public function getImage(): string
     {
-        return $this->items;
+        return $this->image;
+    }
+
+    public function getProductGroups(): array
+    {
+        return $this->productGroups;
     }
 }
