@@ -29,6 +29,7 @@ use Dots\Glovo\Partner\Client\Resources\Catalog\BulkUpdateProductDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\CollectionDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\OptionDTO;
 use Dots\Glovo\Partner\Client\Resources\Catalog\OptionDTOs;
+use Dots\Glovo\Partner\Client\Resources\Catalog\OptionGroupDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\ProductDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\SuperCollectionDTOs;
 use Dots\Glovo\Partner\Client\Responses\ErrorResponseDTO;
@@ -189,7 +190,7 @@ class GlovoPartnerConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function storeOptions(string $storeId, OptionDTOs $options): void
+    public function storeOptions(string $storeId, OptionGroupDTOs $options): void
     {
         $this->authenticateRequests();
 
@@ -199,7 +200,7 @@ class GlovoPartnerConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function getOptions(string $storeId): OptionDTO
+    public function getOptions(string $storeId): OptionGroupDTOs
     {
         $this->authenticateRequests();
 
