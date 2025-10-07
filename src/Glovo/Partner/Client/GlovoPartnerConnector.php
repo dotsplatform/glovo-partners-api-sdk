@@ -27,10 +27,9 @@ use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\StoreSuperCollec
 use Dots\Glovo\Partner\Client\Requests\StoreAddresses\ClearAllDataRequest;
 use Dots\Glovo\Partner\Client\Resources\Catalog\BulkUpdateProductDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\CollectionDTOs;
-use Dots\Glovo\Partner\Client\Resources\Catalog\OptionDTO;
-use Dots\Glovo\Partner\Client\Resources\Catalog\OptionDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\OptionGroupDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\ProductDTOs;
+use Dots\Glovo\Partner\Client\Resources\Catalog\ProductGroupDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\SuperCollectionDTOs;
 use Dots\Glovo\Partner\Client\Responses\ErrorResponseDTO;
 use Saloon\Http\Connector;
@@ -146,17 +145,17 @@ class GlovoPartnerConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function storeProducts(string $storeId, ProductDTOs $products): void
+    public function storeProducts(string $storeId, ProductGroupDTOs $productGroups): void
     {
         $this->authenticateRequests();
 
-        $this->send(new StoreProductsRequest($storeId, $products));
+        $this->send(new StoreProductsRequest($storeId, $productGroups));
     }
 
     /**
      * @throws GlovoException
      */
-    public function getProducts(string $storeId): ProductDTOs
+    public function getProducts(string $storeId): ProductGroupDTOs
     {
         $this->authenticateRequests();
 
@@ -166,11 +165,11 @@ class GlovoPartnerConnector extends Connector
     /**
      * @throws GlovoException
      */
-    public function bulkUpdateProducts(string $storeId, BulkUpdateProductDTOs $dto): ProductDTOs
+    public function bulkUpdateProducts(string $storeId, BulkUpdateProductDTOs $dto): void
     {
         $this->authenticateRequests();
 
-        return $this->send(new BulkUpdateProductsRequest($storeId, $dto))->dto();
+        $this->send(new BulkUpdateProductsRequest($storeId, $dto));
     }
 
     public function deleteGroupOptions(string $storeId, string $groupId): void

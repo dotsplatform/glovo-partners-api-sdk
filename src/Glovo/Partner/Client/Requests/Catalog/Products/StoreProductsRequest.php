@@ -8,7 +8,7 @@
 namespace Dots\Glovo\Partner\Client\Requests\Catalog\Products;
 
 use Dots\Glovo\Partner\Client\Requests\PostGlovoRequest;
-use Dots\Glovo\Partner\Client\Resources\Catalog\ProductDTOs;
+use Dots\Glovo\Partner\Client\Resources\Catalog\ProductGroupDTOs;
 use Dots\Glovo\Partner\Client\Responses\GlovoResponseDTO;
 use Saloon\Http\Response;
 
@@ -18,7 +18,7 @@ class StoreProductsRequest extends PostGlovoRequest
 
     public function __construct(
         protected readonly string $storeId,
-        protected readonly ProductDTOs $dto,
+        protected readonly ProductGroupDTOs $dto,
     ) {
     }
 
