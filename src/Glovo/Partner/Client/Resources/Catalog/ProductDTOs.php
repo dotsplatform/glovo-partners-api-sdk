@@ -18,4 +18,9 @@ class ProductDTOs extends Collection
 
         return self::make($data);
     }
+
+    public function getIds(): array
+    {
+        return $this->map(fn (ProductDTO $dto) => $dto->getId())->all();
+    }
 }
