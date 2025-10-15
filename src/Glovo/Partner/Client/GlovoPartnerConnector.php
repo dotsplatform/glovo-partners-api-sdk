@@ -24,6 +24,7 @@ use Dots\Glovo\Partner\Client\Requests\Catalog\Products\StoreProductsRequest;
 use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\DeleteSuperCollectionRequest;
 use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\GetSuperCollectionsRequest;
 use Dots\Glovo\Partner\Client\Requests\Catalog\SuperCollections\StoreSuperCollectionsRequest;
+use Dots\Glovo\Partner\Client\Requests\Orders\UpdateOrderStatusRequest;
 use Dots\Glovo\Partner\Client\Requests\StoreAddresses\ClearAllDataRequest;
 use Dots\Glovo\Partner\Client\Resources\Catalog\BulkUpdateProductDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\CollectionDTOs;
@@ -31,6 +32,8 @@ use Dots\Glovo\Partner\Client\Resources\Catalog\OptionGroupDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\ProductDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\ProductGroupDTOs;
 use Dots\Glovo\Partner\Client\Resources\Catalog\SuperCollectionDTOs;
+use Dots\Glovo\Partner\Client\Resources\Consts\OrderStatus;
+use Dots\Glovo\Partner\Client\Resources\Order\UpdateOrderStatusDTO;
 use Dots\Glovo\Partner\Client\Responses\ErrorResponseDTO;
 use Saloon\Http\Connector;
 use Saloon\Http\Response;
@@ -204,6 +207,16 @@ class GlovoPartnerConnector extends Connector
         $this->authenticateRequests();
 
         return $this->send(new GetOptionsRequest($storeId))->dto();
+    }
+
+    /**
+     * @throws GlovoException
+     */
+    public function updateOrderStatus(string $storeId, UpdateOrderStatusDTO $dto): void
+    {
+        $this->authenticateRequests();
+
+        $this->send(new UpdateOrderStatusRequest($storeId, $dto));
     }
 
     /**
