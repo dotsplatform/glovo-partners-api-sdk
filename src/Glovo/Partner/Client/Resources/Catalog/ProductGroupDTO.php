@@ -31,6 +31,14 @@ class ProductGroupDTO extends DTO
         ];
     }
 
+    public function getProductsIds(): array
+    {
+        return array_map(
+            fn (ProductDTO $product) => $product->getId(),
+            $this->getItems(),
+        );
+    }
+
     public function getId(): string
     {
         return $this->id;

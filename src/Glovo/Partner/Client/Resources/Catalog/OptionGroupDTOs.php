@@ -18,4 +18,14 @@ class OptionGroupDTOs extends Collection
 
         return self::make($data);
     }
+
+    public function getIds(): array
+    {
+        return $this->map(fn (OptionGroupDTO $dto) => $dto->getId())->all();
+    }
+
+    public function getOptionsIds(): array
+    {
+        return $this->flatMap(fn (OptionGroupDTO $dto) => $dto->getOptionsIds())->unique()->values()->all();
+    }
 }
