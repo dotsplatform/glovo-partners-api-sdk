@@ -17,6 +17,16 @@ class ProductGroupDTO extends DTO
     /** @var ProductDTO[] */
     protected array $items = [];
 
+    public static function fromArray(array $data): static
+    {
+        $data['items'] = array_map(
+            fn($item) => is_array($item) ? ProductDTO::fromArray($item) : $item,
+            $data['items'] ?? [],
+        );
+
+        return parent::fromArray($data);
+    }
+
     public function toArray(): array
     {
         return [
