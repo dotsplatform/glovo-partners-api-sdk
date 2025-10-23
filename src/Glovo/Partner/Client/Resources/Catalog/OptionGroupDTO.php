@@ -40,7 +40,7 @@ class OptionGroupDTO extends DTO
     public function getOptionsIds(): array
     {
         return array_map(
-            fn (OptionDTO $option) => $option->getId(),
+            fn($option) => is_array($option) ? $option['id'] : $option->getId(),
             $this->getItems(),
         );
     }
