@@ -34,7 +34,7 @@ class ProductGroupDTO extends DTO
     public function getProductsIds(): array
     {
         return array_map(
-            fn (ProductDTO $product) => $product->getId(),
+            fn($product) => is_array($product) ? $product['id'] : $product->getId(),
             $this->getItems(),
         );
     }
