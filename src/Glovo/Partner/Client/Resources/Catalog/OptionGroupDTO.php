@@ -37,6 +37,14 @@ class OptionGroupDTO extends DTO
         ];
     }
 
+    public function getOptionsIds(): array
+    {
+        return array_map(
+            fn (OptionDTO $option) => $option->getId(),
+            $this->getItems(),
+        );
+    }
+
     public function getId(): string
     {
         return $this->id;

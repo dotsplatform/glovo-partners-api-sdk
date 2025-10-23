@@ -23,4 +23,9 @@ class ProductGroupDTOs extends Collection
     {
         return $this->map(fn (ProductGroupDTO $dto) => $dto->getId())->all();
     }
+
+    public function getProductsIds(): array
+    {
+        return $this->flatMap(fn (ProductGroupDTO $dto) => $dto->getProductsIds())->unique()->values()->all();
+    }
 }
