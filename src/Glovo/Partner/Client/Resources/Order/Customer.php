@@ -19,6 +19,15 @@ class Customer extends DTO
 
     protected InvoicingDetails $invoicing_details;
 
+    public static function fromArray(array $data): static
+    {
+        if (isset($data['invoicing_details'])) {
+            $data['invoicing_details'] = InvoicingDetails::fromArray($data['invoicing_details']);
+        }
+
+        return parent::fromArray($data);
+    }
+
     public function getName(): string
     {
         return $this->name;
