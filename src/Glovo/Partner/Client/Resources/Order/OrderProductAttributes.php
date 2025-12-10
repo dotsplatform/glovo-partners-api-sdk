@@ -1,7 +1,4 @@
 <?php
-
-use Dots\Glovo\Partner\Client\Resources\Order\OrderProductAttribute;
-
 /**
  * Description of OrderProductAttribute.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC

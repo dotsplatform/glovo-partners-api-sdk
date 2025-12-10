@@ -27,6 +27,19 @@ class OrderProduct extends DTO
 
     protected OrderSubProducts $sub_products;
 
+    public static function fromArray(array $data): static
+    {
+        if (isset($data['attributes'])) {
+            $data['attributes'] = OrderProductAttributes::fromArray($data['attributes']);
+        }
+
+        if (isset($data['sub_products'])) {
+            $data['sub_products'] = OrderSubProducts::fromArray($data['sub_products']);
+        }
+
+        return parent::fromArray($data);
+    }
+
     public function getId(): string
     {
         return $this->id;
