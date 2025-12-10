@@ -1,7 +1,4 @@
 <?php
-
-use Dots\Glovo\Partner\Client\Resources\Order\OrderSubProduct;
-
 /**
  * Description of OrderSubProducts.php
  * @copyright Copyright (c) DOTSPLATFORM, LLC
