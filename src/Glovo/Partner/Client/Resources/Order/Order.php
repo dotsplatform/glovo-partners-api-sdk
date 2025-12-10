@@ -40,9 +40,9 @@ class Order extends DTO
 
     protected ?int $customer_cash_payment_amount;
 
-    protected Courier $courier;
+    protected ?Courier $courier;
 
-    protected Customer $customer;
+    protected ?Customer $customer;
 
     protected OrderProducts $products;
 
@@ -71,6 +71,22 @@ class Order extends DTO
     protected ?string $voucher_code;
 
     protected ?int $service_fee;
+
+    public static function fromArray(array $data): static
+    {
+        if (isset($data['courier'])) {
+            $data['courier'] = Courier::fromArray($data['courier']);
+        }
+        if (isset($data['customer'])) {
+            $data['customer'] = Customer::fromArray($data['customer']);
+        }
+        if (isset($data['delivery_address'])) {
+            $data['delivery_address'] = OrderDeliveryAddress::fromArray($data['delivery_address']);
+        }
+        $data['products'] = OrderProducts::fromArray($data['products'] ?? []);
+
+        return parent::fromArray($data);
+    }
 
     public function getOrderId(): string
     {
