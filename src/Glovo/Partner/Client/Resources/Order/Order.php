@@ -158,12 +158,12 @@ class Order extends DTO
         return $this->customer_cash_payment_amount;
     }
 
-    public function getCourier(): Courier
+    public function getCourier(): ?Courier
     {
         return $this->courier;
     }
 
-    public function getCustomer(): Customer
+    public function getCustomer(): ?Customer
     {
         return $this->customer;
     }

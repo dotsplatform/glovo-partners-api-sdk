@@ -17,7 +17,7 @@ class Customer extends DTO
 
     protected string $hash;
 
-    protected InvoicingDetails $invoicing_details;
+    protected ?InvoicingDetails $invoicing_details;
 
     public static function fromArray(array $data): static
     {
@@ -43,7 +43,7 @@ class Customer extends DTO
         return $this->hash;
     }
 
-    public function getInvoicingDetails(): InvoicingDetails
+    public function getInvoicingDetails(): ?InvoicingDetails
     {
         return $this->invoicing_details;
     }

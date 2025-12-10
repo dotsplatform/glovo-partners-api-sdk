@@ -21,7 +21,7 @@ class OrderSubProduct extends DTO
 
     protected string $name;
 
-    protected OrderProductAttributes $attributes;
+    protected ?OrderProductAttributes $attributes;
 
     public static function fromArray(array $data): static
     {
@@ -57,7 +57,7 @@ class OrderSubProduct extends DTO
         return $this->name;
     }
 
-    public function getAttributes(): OrderProductAttributes
+    public function getAttributes(): ?OrderProductAttributes
     {
         return $this->attributes;
     }
