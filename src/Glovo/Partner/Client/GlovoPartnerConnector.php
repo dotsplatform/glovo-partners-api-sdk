@@ -44,7 +44,9 @@ class GlovoPartnerConnector extends Connector
 {
     use AlwaysThrowOnErrors;
 
-    private const BASE_PROD_URL = 'https://menu-tool.glovoapp.com/partners-api/api';
+    private const BASE_STAGE_URL = 'https://menu-tool.glovoapp.com/partners-api/api';
+
+    private const BASE_PROD_URL = 'https://menu-tool.glovoapp.com/partners/api';
 
     public function __construct(
         private readonly GlovoPartnerAuthDTO $authDto,
