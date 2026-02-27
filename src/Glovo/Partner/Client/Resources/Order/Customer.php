@@ -11,11 +11,11 @@ use Dots\Data\DTO;
 
 class Customer extends DTO
 {
-    protected string $name;
+    protected ?string $name;
 
-    protected string $phone_number;
+    protected ?string $phone_number;
 
-    protected string $hash;
+    protected ?string $hash;
 
     protected ?InvoicingDetails $invoicing_details;
 
@@ -28,17 +28,17 @@ class Customer extends DTO
         return parent::fromArray($data);
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function getPhoneNumber(): string
+    public function getPhoneNumber(): ?string
     {
         return $this->phone_number;
     }
 
-    public function getHash(): string
+    public function getHash(): ?string
     {
         return $this->hash;
     }
