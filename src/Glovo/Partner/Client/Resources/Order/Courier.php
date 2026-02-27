@@ -11,16 +11,16 @@ use Dots\Data\DTO;
 
 class Courier extends DTO
 {
-    protected string $name;
+    protected ?string $name;
 
-    protected string $phone_number;
+    protected ?string $phone_number;
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function getPhoneNumber(): string
+    public function getPhoneNumber(): ?string
     {
         return $this->phone_number;
     }
