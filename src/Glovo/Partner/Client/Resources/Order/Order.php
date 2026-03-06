@@ -28,7 +28,7 @@ class Order extends DTO
 
     protected string $order_code;
 
-    protected string $allergy_info;
+    protected ?string $allergy_info;
 
     protected ?string $special_requirements;
 
@@ -128,7 +128,7 @@ class Order extends DTO
         return $this->order_code;
     }
 
-    public function getAllergyInfo(): string
+    public function getAllergyInfo(): ?string
     {
         return $this->allergy_info;
     }
